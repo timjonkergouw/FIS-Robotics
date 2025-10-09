@@ -6,6 +6,7 @@ export type StaggeredMenuItem = {
     label: string;
     link?: string;
     ariaLabel?: string;
+    submenu?: StaggeredMenuItem[];
 };
 
 export type StaggeredSocialItem = {
@@ -59,6 +60,7 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
     const textInnerRef = useRef<HTMLSpanElement | null>(null);
     const textWrapRef = useRef<HTMLSpanElement | null>(null);
     const [textLines, setTextLines] = useState(["Menu", "Close"]);
+    const [openSubmenu, setOpenSubmenu] = useState<string | null>(null);
 
     const openTlRef = useRef<gsap.core.Timeline | null>(null);
     const closeTweenRef = useRef<gsap.core.Tween | null>(null);
@@ -326,6 +328,10 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
         });
     }, []);
 
+    const toggleSubmenu = useCallback((itemLabel: string) => {
+        setOpenSubmenu(openSubmenu === itemLabel ? null : itemLabel);
+    }, [openSubmenu]);
+
     const toggleMenu = useCallback(() => {
         const target = !openRef.current;
         openRef.current = target;
@@ -402,9 +408,33 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
                         {items && items.length ? (
                             items.map((it, idx) => (
                                 <li className="sm-panel-itemWrap" key={it.label + idx}>
-                                    <a className="sm-panel-item" href={it.link} aria-label={it.ariaLabel} data-index={idx + 1}>
-                                        <span className="sm-panel-itemLabel">{it.label}</span>
-                                    </a>
+                                    {it.submenu && it.submenu.length > 0 ? (
+                                        <div className="sm-panel-item sm-panel-item-with-submenu">
+                                            <button
+                                                className="sm-panel-item-button"
+                                                onClick={() => toggleSubmenu(it.label)}
+                                                aria-expanded={openSubmenu === it.label}
+                                            >
+                                                <span className="sm-panel-itemLabel">{it.label}</span>
+                                                <span className="sm-submenu-arrow">
+                                                    {openSubmenu === it.label ? '−' : '+'}
+                                                </span>
+                                            </button>
+                                            <ul className={`sm-submenu ${openSubmenu === it.label ? 'sm-submenu-open' : ''}`}>
+                                                {it.submenu.map((subItem, subIdx) => (
+                                                    <li key={subItem.label + subIdx} className="sm-submenu-item">
+                                                        <a className="sm-submenu-link" href={subItem.link} aria-label={subItem.ariaLabel}>
+                                                            {subItem.label}
+                                                        </a>
+                                                    </li>
+                                                ))}
+                                            </ul>
+                                        </div>
+                                    ) : (
+                                        <a className="sm-panel-item" href={it.link} aria-label={it.ariaLabel} data-index={idx + 1}>
+                                            <span className="sm-panel-itemLabel">{it.label}</span>
+                                        </a>
+                                    )}
                                 </li>
                             ))
                         ) : (

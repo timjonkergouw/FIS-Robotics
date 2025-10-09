@@ -7,7 +7,16 @@ export default function Page() {
     const items = useMemo(
         () => [
             { label: "Home", link: "/" },
-            { label: "Projects", link: "#projects" },
+            {
+                label: "About us",
+                link: "#about",
+                submenu: [
+                    { label: "Zitschalen/Zitortheses", link: "#zitschalen" },
+                    { label: "Creatieve Industrie", link: "#creatief" },
+                    { label: "SmartCAM", link: "#smartcam" },
+                    { label: "Hardware", link: "#hardware" }
+                ]
+            },
             { label: "Team", link: "#team" },
             { label: "Contact", link: "#contact" },
         ],
@@ -36,6 +45,7 @@ export default function Page() {
                 menuButtonColor="#fff"
                 openMenuButtonColor="#000"
                 accentColor="#5227FF"
+                logoUrl="/images/fis_robotics_logo.jpg"
             />
             <section style={{ position: "relative", zIndex: 1, padding: "8rem 2rem" }}>
                 <h1 style={{ fontSize: 48, fontWeight: 700, marginBottom: 16 }}>FIS Robotics</h1>
