@@ -1,6 +1,8 @@
 "use client";
 import React, { useCallback, useLayoutEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
+import LogoLoop from "./LogoLoop";
+import { FaInstagram, FaFacebook, FaTwitter, FaLinkedin } from "react-icons/fa";
 
 export type StaggeredMenuItem = {
     label: string;
@@ -445,18 +447,28 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
                             </li>
                         )}
                     </ul>
-                    {displaySocials && socialItems && socialItems.length > 0 && (
+                    {displaySocials && (
                         <div className="sm-socials" aria-label="Social links">
                             <h3 className="sm-socials-title">Socials</h3>
-                            <ul className="sm-socials-list" role="list">
-                                {socialItems.map((s, i) => (
-                                    <li key={s.label + i} className="sm-socials-item">
-                                        <a href={s.link} target="_blank" rel="noopener noreferrer" className="sm-socials-link">
-                                            {s.label}
-                                        </a>
-                                    </li>
-                                ))}
-                            </ul>
+                            <div style={{ height: '60px', marginTop: '1rem' }}>
+                                <LogoLoop
+                                    logos={[
+                                        { node: <FaInstagram />, title: "Instagram", href: "https://instagram.com" },
+                                        { node: <FaFacebook />, title: "Facebook", href: "https://facebook.com" },
+                                        { node: <FaTwitter />, title: "X (Twitter)", href: "https://x.com" },
+                                        { node: <FaLinkedin />, title: "LinkedIn", href: "https://linkedin.com" }
+                                    ]}
+                                    speed={80}
+                                    direction="left"
+                                    logoHeight={32}
+                                    gap={24}
+                                    pauseOnHover={false}
+                                    scaleOnHover
+                                    fadeOut
+                                    fadeOutColor="#ffffff"
+                                    ariaLabel="Social media links"
+                                />
+                            </div>
                         </div>
                     )}
                 </div>
