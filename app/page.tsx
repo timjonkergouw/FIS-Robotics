@@ -13,10 +13,10 @@ export default function Home() {
         label: "About us",
         link: "#about",
         submenu: [
-          { label: "Zitschalen/Zitortheses", link: "#zitschalen" },
-          { label: "Creatieve Industrie", link: "#creatief" },
-          { label: "SmartCAM", link: "#smartcam" },
-          { label: "Hardware", link: "#hardware" }
+          { label: "Zitschalen/Zitortheses", link: "/zitschalen" },
+          { label: "Creatieve Industrie", link: "/creatief" },
+          { label: "SmartCAM", link: "/smartcam" },
+          { label: "Hardware", link: "/hardware" }
         ]
       },
       { label: "Team", link: "#team" },

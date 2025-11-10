@@ -711,3 +711,19 @@
     @apply bg-background text-foreground;
   }
 }
+
+/* Detail Page Animations */
+.detail-section {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.detail-section.animate-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.detail-section-reverse {
+  animation-delay: 0.1s;
+}

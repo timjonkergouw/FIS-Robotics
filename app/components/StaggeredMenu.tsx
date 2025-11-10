@@ -1,6 +1,7 @@
 "use client";
 import React, { useCallback, useLayoutEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
+import Link from "next/link";
 import LogoLoop from "./LogoLoop";
 import { FaInstagram, FaFacebook, FaTwitter, FaLinkedin } from "react-icons/fa";
 
@@ -425,17 +426,29 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
                                             <ul className={`sm-submenu ${openSubmenu === it.label ? 'sm-submenu-open' : ''}`}>
                                                 {it.submenu.map((subItem, subIdx) => (
                                                     <li key={subItem.label + subIdx} className="sm-submenu-item">
-                                                        <a className="sm-submenu-link" href={subItem.link} aria-label={subItem.ariaLabel}>
-                                                            {subItem.label}
-                                                        </a>
+                                                        {subItem.link?.startsWith('/') ? (
+                                                            <Link className="sm-submenu-link" href={subItem.link} aria-label={subItem.ariaLabel}>
+                                                                {subItem.label}
+                                                            </Link>
+                                                        ) : (
+                                                            <a className="sm-submenu-link" href={subItem.link} aria-label={subItem.ariaLabel}>
+                                                                {subItem.label}
+                                                            </a>
+                                                        )}
                                                     </li>
                                                 ))}
                                             </ul>
                                         </div>
                                     ) : (
-                                        <a className="sm-panel-item" href={it.link} aria-label={it.ariaLabel} data-index={idx + 1}>
-                                            <span className="sm-panel-itemLabel">{it.label}</span>
-                                        </a>
+                                        it.link?.startsWith('/') ? (
+                                            <Link className="sm-panel-item" href={it.link} aria-label={it.ariaLabel} data-index={idx + 1}>
+                                                <span className="sm-panel-itemLabel">{it.label}</span>
+                                            </Link>
+                                        ) : (
+                                            <a className="sm-panel-item" href={it.link} aria-label={it.ariaLabel} data-index={idx + 1}>
+                                                <span className="sm-panel-itemLabel">{it.label}</span>
+                                            </a>
+                                        )
                                     )}
                                 </li>
                             ))
