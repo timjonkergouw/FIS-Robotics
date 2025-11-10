@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { StaggeredMenu, StaggeredMenuItem, StaggeredSocialItem } from "./StaggeredMenu";
 import DarkVeil from "./DarkVeil";
 
@@ -7,6 +7,7 @@ interface SiteMenuProps {
   items?: StaggeredMenuItem[];
   socialItems?: StaggeredSocialItem[];
   logoUrl?: string;
+  showLogo?: boolean;
   menuButtonColor?: string;
   openMenuButtonColor?: string;
   accentColor?: string;
@@ -28,7 +29,7 @@ export const SiteMenu: React.FC<SiteMenuProps> = ({
         { label: "Hardware", link: "/hardware" }
       ]
     },
-    { label: "Team", link: "#team" },
+    { label: "Team", link: "/team" },
     { label: "Contact", link: "#contact" }
   ],
   socialItems = [
@@ -38,6 +39,7 @@ export const SiteMenu: React.FC<SiteMenuProps> = ({
     { label: "Instagram", link: "https://instagram.com/" }
   ],
   logoUrl = "/images/fis_robotics_logo.jpg",
+  showLogo = true,
   menuButtonColor = "#fff",
   openMenuButtonColor = "#000",
   accentColor = "#5227FF",
@@ -45,10 +47,39 @@ export const SiteMenu: React.FC<SiteMenuProps> = ({
   position = "right",
   showDarkVeil = true
 }) => {
+  const veilRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!showDarkVeil || !veilRef.current) return;
+
+    const updateHeight = () => {
+      const main = veilRef.current?.closest('main');
+      if (main && veilRef.current) {
+        const mainHeight = main.scrollHeight;
+        veilRef.current.style.height = `${mainHeight}px`;
+      }
+    };
+
+    updateHeight();
+    window.addEventListener('resize', updateHeight);
+    
+    // Use MutationObserver to watch for content changes
+    const observer = new MutationObserver(updateHeight);
+    const main = veilRef.current?.closest('main');
+    if (main) {
+      observer.observe(main, { childList: true, subtree: true, attributes: true });
+    }
+
+    return () => {
+      window.removeEventListener('resize', updateHeight);
+      observer.disconnect();
+    };
+  }, [showDarkVeil]);
+
   return (
     <>
       {showDarkVeil && (
-        <div style={{ position: "absolute", inset: 0, zIndex: 0 }}>
+        <div ref={veilRef} style={{ position: "absolute", inset: 0, zIndex: 0, minHeight: "100vh" }}>
           <DarkVeil />
         </div>
       )}
@@ -61,6 +92,7 @@ export const SiteMenu: React.FC<SiteMenuProps> = ({
         openMenuButtonColor={openMenuButtonColor}
         accentColor={accentColor}
         logoUrl={logoUrl}
+        showLogo={showLogo}
         displayItemNumbering={false}
       />
     </>

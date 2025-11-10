@@ -4,25 +4,28 @@ import Image from "next/image";
 import { SiteMenu } from "./components/SiteMenu";
 import { Footer } from "./components/Footer";
 import { AutoCarousel } from "./components/AutoCarousel";
+import { useLanguage } from "./contexts/LanguageContext";
 
 export default function Home() {
+  const { t } = useLanguage();
+
   const items = useMemo(
     () => [
-      { label: "Home", link: "/" },
+      { label: t("menu.home"), link: "/" },
       {
-        label: "About us",
+        label: t("menu.about"),
         link: "#about",
         submenu: [
-          { label: "Zitschalen/Zitortheses", link: "/zitschalen" },
-          { label: "Creatieve Industrie", link: "/creatief" },
-          { label: "SmartCAM", link: "/smartcam" },
-          { label: "Hardware", link: "/hardware" }
+          { label: t("menu.zitschalen"), link: "/zitschalen" },
+          { label: t("menu.creatief"), link: "/creatief" },
+          { label: t("menu.smartcam"), link: "/smartcam" },
+          { label: t("menu.hardware"), link: "/hardware" }
         ]
       },
-      { label: "Team", link: "#team" },
-      { label: "Contact", link: "#contact" },
+      { label: t("menu.team"), link: "/team" },
+      { label: t("menu.contact"), link: "#contact" },
     ],
-    []
+    [t]
   );
 
   const socialItems = useMemo(
@@ -39,34 +42,34 @@ export default function Home() {
     () => [
       {
         id: "zitschalen",
-        title: "Zitschalen / Zitortheses",
-        description: "Innovatieve zitoplossingen op maat gemaakt voor optimaal comfort en ondersteuning. Onze zitschalen en zitortheses worden met precisie ontworpen en geproduceerd.",
+        title: t("carousel.zitschalen.title"),
+        description: t("carousel.zitschalen.description"),
         image: "/images/zitschalen.jpg",
         link: "/zitschalen"
       },
       {
         id: "creatief",
-        title: "Creatieve Industrie",
-        description: "We combineren technologie met creativiteit om unieke oplossingen te ontwikkelen voor de creatieve sector. Van kunstinstallaties tot interactieve ervaringen.",
+        title: t("carousel.creatief.title"),
+        description: t("carousel.creatief.description"),
         image: "/images/creatief.jpg",
         link: "/creatief"
       },
       {
         id: "smartcam",
-        title: "SmartCAM",
-        description: "Geavanceerde CAM-software voor precisiebewerking en geautomatiseerde productieprocessen. Optimaliseer uw productie met intelligente technologie.",
+        title: t("carousel.smartcam.title"),
+        description: t("carousel.smartcam.description"),
         image: "/images/smartcam.jpg",
         link: "/smartcam"
       },
       {
         id: "hardware",
-        title: "Hardware",
-        description: "Robuuste en betrouwbare hardwareoplossingen voor diverse toepassingen. Van elektronische componenten tot complete systemen op maat.",
+        title: t("carousel.hardware.title"),
+        description: t("carousel.hardware.description"),
         image: "/images/hardware.jpg",
         link: "/hardware"
       }
     ],
-    []
+    [t]
   );
 
   return (
@@ -74,6 +77,7 @@ export default function Home() {
       <SiteMenu
         items={items}
         socialItems={socialItems}
+        showLogo={false}
       />
 
       {/* Top Section: Logo rechts, intro tekst links */}
@@ -83,13 +87,10 @@ export default function Home() {
             {/* Intro tekst links */}
             <div className="flex-1 text-white">
               <h1 className="text-4xl md:text-5xl font-bold mb-6">
-                Welkom bij FIS Robotics
+                {t("home.title")}
               </h1>
               <p className="text-lg md:text-xl text-gray-200 leading-relaxed max-w-2xl">
-                FIS Robotics is een innovatief bedrijf gespecialiseerd in geavanceerde technologieën
-                en maatwerkoplossingen. We combineren expertise in robotica, software-ontwikkeling en
-                hardware-engineering om oplossingen te creëren die het verschil maken. Van medische
-                hulpmiddelen tot creatieve industrieën, wij zetten technologie in voor een betere toekomst.
+                {t("home.description")}
               </p>
             </div>
 
@@ -113,7 +114,7 @@ export default function Home() {
       <section style={{ position: "relative", zIndex: 1, padding: "4rem 2rem" }}>
         <div className="max-w-4xl mx-auto text-center">
           <p className="text-2xl md:text-3xl font-semibold text-white leading-relaxed">
-            &ldquo;Innovatie door technologie, oplossingen op maat&rdquo;
+            &ldquo;{t("home.quote")}&rdquo;
           </p>
         </div>
       </section>
@@ -131,10 +132,10 @@ export default function Home() {
 
       <Footer
         aboutItems={[
-          { label: "Zitschalen / Zitortheses", link: "/zitschalen" },
-          { label: "Creatieve Industrie", link: "/creatief" },
-          { label: "SmartCAM", link: "/smartcam" },
-          { label: "Hardware", link: "/hardware" }
+          { label: t("menu.zitschalen"), link: "/zitschalen" },
+          { label: t("menu.creatief"), link: "/creatief" },
+          { label: t("menu.smartcam"), link: "/smartcam" },
+          { label: t("menu.hardware"), link: "/hardware" }
         ]}
         socialItems={socialItems}
       />

@@ -53,7 +53,7 @@ export const DetailPage: React.FC<DetailPageProps> = ({
 
   return (
     <main style={{ minHeight: "100dvh", position: "relative" }}>
-      <SiteMenu items={menuItems} socialItems={socialItems} />
+      <SiteMenu items={menuItems} socialItems={socialItems} showLogo={false} />
 
       {/* Hero Section */}
       <section

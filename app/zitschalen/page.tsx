@@ -16,7 +16,7 @@ export default function ZitschalenPage() {
           { label: "Hardware", link: "/hardware" },
         ],
       },
-      { label: "Team", link: "#team" },
+      { label: "Team", link: "/team" },
       { label: "Contact", link: "#contact" },
     ],
     []

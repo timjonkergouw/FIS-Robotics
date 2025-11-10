@@ -4,6 +4,7 @@ import { gsap } from "gsap";
 import Link from "next/link";
 import LogoLoop from "./LogoLoop";
 import { FaInstagram, FaFacebook, FaTwitter, FaLinkedin } from "react-icons/fa";
+import { LanguageSwitcher } from "./LanguageSwitcher";
 
 export type StaggeredMenuItem = {
     label: string;
@@ -26,6 +27,7 @@ export type StaggeredMenuProps = {
     displayItemNumbering?: boolean;
     className?: string;
     logoUrl?: string;
+    showLogo?: boolean;
     menuButtonColor?: string;
     openMenuButtonColor?: string;
     accentColor?: string;
@@ -44,6 +46,7 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
     displayItemNumbering = true,
     className,
     logoUrl = "/src/assets/logos/reactbits-gh-white.svg",
+    showLogo = true,
     menuButtonColor = "#fff",
     openMenuButtonColor = "#fff",
     accentColor = "#5227FF",
@@ -303,6 +306,35 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
         }
     }, [changeMenuColorOnOpen, menuButtonColor, openMenuButtonColor]);
 
+    // Lock body scroll when menu is open (only when fixed)
+    React.useEffect(() => {
+        if (!isFixed) return;
+        
+        if (open) {
+            // Store original overflow values
+            const originalBodyOverflow = document.body.style.overflow;
+            const originalHtmlOverflow = document.documentElement.style.overflow;
+            const originalPaddingRight = document.body.style.paddingRight;
+            
+            // Calculate scrollbar width to prevent layout shift
+            const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
+            
+            // Lock body and html scroll
+            document.body.style.overflow = 'hidden';
+            document.documentElement.style.overflow = 'hidden';
+            if (scrollbarWidth > 0) {
+                document.body.style.paddingRight = `${scrollbarWidth}px`;
+            }
+            
+            return () => {
+                // Restore original values
+                document.body.style.overflow = originalBodyOverflow;
+                document.documentElement.style.overflow = originalHtmlOverflow;
+                document.body.style.paddingRight = originalPaddingRight;
+            };
+        }
+    }, [open, isFixed]);
+
     const animateText = useCallback((opening: boolean) => {
         const inner = textInnerRef.current;
         if (!inner) return;
@@ -370,6 +402,7 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
                 })()}
             </div>
             <header className="staggered-menu-header" aria-label="Main navigation header">
+                {showLogo ? (
                 <div className="sm-logo" aria-label="Logo">
                     <img
                         src={logoUrl || "/src/assets/logos/reactbits-gh-white.svg"}
@@ -380,6 +413,11 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
                         height={24}
                     />
                 </div>
+                ) : (
+                    <div className="sm-logo" aria-label="Language Switcher">
+                        <LanguageSwitcher />
+                    </div>
+                )}
                 <button
                     ref={toggleBtnRef}
                     className="sm-toggle"
