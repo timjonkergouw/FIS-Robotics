@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState, useMemo } from 'react';
 
 type LogoItem = {
     node: React.ReactNode;
@@ -36,19 +36,41 @@ const LogoLoop: React.FC<LogoLoopProps> = ({
     const [isHovered, setIsHovered] = useState(false);
     const animationRef = useRef<number>();
     const currentXRef = useRef(0);
+    const targetSpeedRef = useRef(speed);
+    const currentSpeedRef = useRef(speed);
+
+    // Memoize logos length to keep dependency array consistent
+    const logosLength = useMemo(() => logos?.length || 0, [logos]);
+
+    // Update target speed when hover state or speed prop changes
+    useEffect(() => {
+        targetSpeedRef.current = isHovered ? speed * 0.5 : speed;
+    }, [isHovered, speed]);
 
     useEffect(() => {
-        if (!trackRef.current || logos.length === 0) return;
+        if (!trackRef.current || !logos || logosLength === 0) return;
 
         const track = trackRef.current;
+
+        // Initialize speed refs to normal speed
+        currentSpeedRef.current = speed;
+        targetSpeedRef.current = speed;
 
         // Wait for layout to complete, then get the actual width
         const updateAnimation = () => {
             const trackWidth = track.scrollWidth / 3; // Third width since we have 3 sets of logos
 
             const animate = () => {
-                const currentSpeed = isHovered ? speed * 0.5 : speed; // 50% slower on hover
-                const increment = direction === 'left' ? -currentSpeed / 60 : currentSpeed / 60; // 60fps
+                // Gradually interpolate current speed towards target speed
+                const speedDiff = targetSpeedRef.current - currentSpeedRef.current;
+                currentSpeedRef.current += speedDiff * 0.1; // Smooth interpolation factor (0.1 = 10% per frame)
+                
+                // Stop interpolation when very close to target
+                if (Math.abs(speedDiff) < 0.1) {
+                    currentSpeedRef.current = targetSpeedRef.current;
+                }
+                
+                const increment = direction === 'left' ? -currentSpeedRef.current / 60 : currentSpeedRef.current / 60; // 60fps
 
                 currentXRef.current += increment;
 
@@ -78,7 +100,7 @@ const LogoLoop: React.FC<LogoLoopProps> = ({
             }
             clearTimeout(timeoutId);
         };
-    }, [speed, direction, isHovered, logos.length]);
+    }, [speed, direction, logosLength]);
 
     const handleMouseEnter = () => {
         setIsHovered(true);

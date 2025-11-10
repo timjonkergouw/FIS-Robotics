@@ -418,8 +418,8 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
                                                 aria-expanded={openSubmenu === it.label}
                                             >
                                                 <span className="sm-panel-itemLabel">{it.label}</span>
-                                                <span className="sm-submenu-arrow">
-                                                    {openSubmenu === it.label ? '−' : '+'}
+                                                <span className={`sm-submenu-arrow ${openSubmenu === it.label ? 'sm-submenu-arrow-open' : ''}`}>
+                                                    +
                                                 </span>
                                             </button>
                                             <ul className={`sm-submenu ${openSubmenu === it.label ? 'sm-submenu-open' : ''}`}>
@@ -453,10 +453,10 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
                             <div style={{ height: '60px', marginTop: '1rem' }}>
                                 <LogoLoop
                                     logos={[
-                                        { node: <FaInstagram />, title: "Instagram", href: "https://instagram.com" },
+                                        { node: <FaLinkedin />, title: "LinkedIn", href: "https://linkedin.com" },
                                         { node: <FaFacebook />, title: "Facebook", href: "https://facebook.com" },
-                                        { node: <FaTwitter />, title: "X (Twitter)", href: "https://x.com" },
-                                        { node: <FaLinkedin />, title: "LinkedIn", href: "https://linkedin.com" }
+                                        { node: <FaTwitter />, title: "X", href: "https://x.com" },
+                                        { node: <FaInstagram />, title: "Instagram", href: "https://instagram.com" }
                                     ]}
                                     speed={80}
                                     direction="left"

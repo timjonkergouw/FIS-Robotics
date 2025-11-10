@@ -1,8 +1,8 @@
 "use client";
 import React, { useMemo } from "react";
 import Image from "next/image";
-import { StaggeredMenu } from "./components/StaggeredMenu";
-import DarkVeil from "./components/DarkVeil";
+import { SiteMenu } from "./components/SiteMenu";
+import { Footer } from "./components/Footer";
 import { AutoCarousel } from "./components/AutoCarousel";
 
 export default function Home() {
@@ -27,9 +27,10 @@ export default function Home() {
 
   const socialItems = useMemo(
     () => [
-      { label: "GitHub", link: "https://github.com/" },
       { label: "LinkedIn", link: "https://www.linkedin.com/" },
+      { label: "Facebook", link: "https://facebook.com/" },
       { label: "X", link: "https://x.com/" },
+      { label: "Instagram", link: "https://instagram.com/" },
     ],
     []
   );
@@ -70,18 +71,9 @@ export default function Home() {
 
   return (
     <main style={{ minHeight: "100dvh", position: "relative" }}>
-      <div style={{ position: "absolute", inset: 0, zIndex: 0 }}>
-        <DarkVeil />
-      </div>
-      <StaggeredMenu
-        isFixed
-        position="right"
+      <SiteMenu
         items={items}
         socialItems={socialItems}
-        menuButtonColor="#fff"
-        openMenuButtonColor="#000"
-        accentColor="#5227FF"
-        logoUrl="/images/fis_robotics_logo.jpg"
       />
 
       {/* Top Section: Logo rechts, intro tekst links */}
@@ -136,6 +128,16 @@ export default function Home() {
           />
         </div>
       </section>
+
+      <Footer
+        aboutItems={[
+          { label: "Zitschalen / Zitortheses", link: "/zitschalen" },
+          { label: "Creatieve Industrie", link: "/creatief" },
+          { label: "SmartCAM", link: "/smartcam" },
+          { label: "Hardware", link: "/hardware" }
+        ]}
+        socialItems={socialItems}
+      />
     </main>
   );
 }

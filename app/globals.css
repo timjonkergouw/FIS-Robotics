@@ -406,6 +406,12 @@
   font-weight: 300;
   margin-left: 1rem;
   transition: transform 0.3s ease;
+  display: inline-block;
+  transform: rotate(0deg);
+}
+
+.sm-submenu-arrow-open {
+  transform: rotate(45deg);
 }
 
 .sm-submenu {
@@ -436,7 +442,7 @@
 
 .sm-submenu-link {
   color: #666;
-  font-weight: 400;
+  font-weight: 700;
   font-size: 1.4rem;
   cursor: pointer;
   line-height: 0.95;
