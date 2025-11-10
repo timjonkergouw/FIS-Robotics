@@ -78,6 +78,7 @@
   left: 0;
   width: 100vw;
   height: 100vh;
+  height: 100dvh;
   z-index: 40;
   overflow: hidden;
 }
@@ -175,6 +176,7 @@
   position: relative;
   overflow: hidden;
   line-height: 1;
+  margin: 0;
 }
 
 .sm-icon-line {
@@ -430,6 +432,16 @@
   transition: opacity 0.3s ease, transform 0.3s ease, max-height 0.3s ease;
 }
 
+/* Ensure consistent spacing between menu items */
+.sm-panel-item-with-submenu {
+  margin-bottom: 0;
+  margin-top: 0;
+}
+
+.sm-panel-itemWrap + .sm-panel-itemWrap {
+  margin-top: 0;
+}
+
 .sm-submenu-open {
   opacity: 1;
   max-height: 300px;
@@ -499,6 +511,19 @@
     width: 100%;
     left: 0;
     right: 0;
+    top: 0;
+    height: 100vh;
+    height: 100dvh;
+    padding: 6em 2em 2em 2em;
+  }
+
+  .sm-prelayers {
+    width: 100%;
+    left: 0;
+    right: 0;
+    top: 0;
+    height: 100vh;
+    height: 100dvh;
   }
 
   .staggered-menu-wrapper[data-open] .sm-logo-img {
