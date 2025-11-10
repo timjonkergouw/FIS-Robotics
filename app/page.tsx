@@ -86,8 +86,9 @@ export default function Home() {
           <div className="flex flex-col md:flex-row items-center md:items-start gap-8 md:gap-12">
             {/* Intro tekst links */}
             <div className="flex-1 text-white">
-              <h1 className="text-4xl md:text-5xl font-bold mb-6">
-                {t("home.title")}
+              <h1 className="text-4xl md:text-5xl font-bold mb-6 uppercase">
+                <div>{t("home.title.line1")}</div>
+                <div>{t("home.title.line2")}</div>
               </h1>
               <p className="text-lg md:text-xl text-gray-200 leading-relaxed max-w-2xl">
                 {t("home.description")}

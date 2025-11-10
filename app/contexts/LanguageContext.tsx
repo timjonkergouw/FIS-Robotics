@@ -25,6 +25,8 @@ const translations = {
     
     // Homepage
     "home.title": "Welkom bij FIS Robotics",
+    "home.title.line1": "WELKOM BIJ",
+    "home.title.line2": "FIS ROBOTICS",
     "home.description": "FIS Robotics is een innovatief bedrijf gespecialiseerd in geavanceerde technologieën en maatwerkoplossingen. We combineren expertise in robotica, software-ontwikkeling en hardware-engineering om oplossingen te creëren die het verschil maken. Van medische hulpmiddelen tot creatieve industrieën, wij zetten technologie in voor een betere toekomst.",
     "home.quote": "Innovatie door technologie, oplossingen op maat",
     "home.moreInfo": "Meer informatie",
@@ -67,6 +69,8 @@ const translations = {
     
     // Homepage
     "home.title": "Welcome to FIS Robotics",
+    "home.title.line1": "WELCOME TO",
+    "home.title.line2": "FIS ROBOTICS",
     "home.description": "FIS Robotics is an innovative company specialized in advanced technologies and custom solutions. We combine expertise in robotics, software development and hardware engineering to create solutions that make a difference. From medical aids to creative industries, we use technology for a better future.",
     "home.quote": "Innovation through technology, custom solutions",
     "home.moreInfo": "More information",

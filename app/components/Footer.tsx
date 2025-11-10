@@ -49,12 +49,12 @@ export const Footer: React.FC<FooterProps> = ({
             </div>
           </div>
 
-          {/* Mobile: 3 columns side by side */}
-          <div className="w-full md:hidden grid grid-cols-3 gap-4">
+          {/* Mobile: Stacked vertically */}
+          <div className="w-full md:hidden flex flex-col gap-6">
             {/* Contact */}
             <div>
-              <h3 className="text-lg font-bold mb-3">{t("footer.contact")}</h3>
-              <ul className="space-y-2 text-sm">
+              <h3 className="text-base font-bold mb-2">{t("footer.contact")}</h3>
+              <ul className="space-y-1.5 text-xs">
                 <li>
                   <a href={`mailto:${email}`} className="hover:text-gray-300 transition-colors">
                     {email}
@@ -73,8 +73,8 @@ export const Footer: React.FC<FooterProps> = ({
 
             {/* About */}
             <div>
-              <h3 className="text-lg font-bold mb-3">{t("footer.about")}</h3>
-              <ul className="space-y-2 text-sm">
+              <h3 className="text-base font-bold mb-2">{t("footer.about")}</h3>
+              <ul className="space-y-1.5 text-xs">
                 {aboutItems.map((item, index) => (
                   <li key={index}>
                     <Link href={item.link} className="hover:text-gray-300 transition-colors">
@@ -87,8 +87,8 @@ export const Footer: React.FC<FooterProps> = ({
 
             {/* Socials */}
             <div>
-              <h3 className="text-lg font-bold mb-3">{t("footer.socials")}</h3>
-              <ul className="space-y-2 text-sm">
+              <h3 className="text-base font-bold mb-2">{t("footer.socials")}</h3>
+              <ul className="space-y-1.5 text-xs">
                 {socialItems.map((item, index) => (
                   <li key={index}>
                     <a
