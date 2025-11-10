@@ -1,103 +1,141 @@
+"use client";
+import React, { useMemo } from "react";
 import Image from "next/image";
+import { StaggeredMenu } from "./components/StaggeredMenu";
+import DarkVeil from "./components/DarkVeil";
+import { AutoCarousel } from "./components/AutoCarousel";
 
 export default function Home() {
-  return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+  const items = useMemo(
+    () => [
+      { label: "Home", link: "/" },
+      {
+        label: "About us",
+        link: "#about",
+        submenu: [
+          { label: "Zitschalen/Zitortheses", link: "#zitschalen" },
+          { label: "Creatieve Industrie", link: "#creatief" },
+          { label: "SmartCAM", link: "#smartcam" },
+          { label: "Hardware", link: "#hardware" }
+        ]
+      },
+      { label: "Team", link: "#team" },
+      { label: "Contact", link: "#contact" },
+    ],
+    []
+  );
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+  const socialItems = useMemo(
+    () => [
+      { label: "GitHub", link: "https://github.com/" },
+      { label: "LinkedIn", link: "https://www.linkedin.com/" },
+      { label: "X", link: "https://x.com/" },
+    ],
+    []
+  );
+
+  const carouselItems = useMemo(
+    () => [
+      {
+        id: "zitschalen",
+        title: "Zitschalen / Zitortheses",
+        description: "Innovatieve zitoplossingen op maat gemaakt voor optimaal comfort en ondersteuning. Onze zitschalen en zitortheses worden met precisie ontworpen en geproduceerd.",
+        image: "/images/zitschalen.jpg",
+        link: "/zitschalen"
+      },
+      {
+        id: "creatief",
+        title: "Creatieve Industrie",
+        description: "We combineren technologie met creativiteit om unieke oplossingen te ontwikkelen voor de creatieve sector. Van kunstinstallaties tot interactieve ervaringen.",
+        image: "/images/creatief.jpg",
+        link: "/creatief"
+      },
+      {
+        id: "smartcam",
+        title: "SmartCAM",
+        description: "Geavanceerde CAM-software voor precisiebewerking en geautomatiseerde productieprocessen. Optimaliseer uw productie met intelligente technologie.",
+        image: "/images/smartcam.jpg",
+        link: "/smartcam"
+      },
+      {
+        id: "hardware",
+        title: "Hardware",
+        description: "Robuuste en betrouwbare hardwareoplossingen voor diverse toepassingen. Van elektronische componenten tot complete systemen op maat.",
+        image: "/images/hardware.jpg",
+        link: "/hardware"
+      }
+    ],
+    []
+  );
+
+  return (
+    <main style={{ minHeight: "100dvh", position: "relative" }}>
+      <div style={{ position: "absolute", inset: 0, zIndex: 0 }}>
+        <DarkVeil />
+      </div>
+      <StaggeredMenu
+        isFixed
+        position="right"
+        items={items}
+        socialItems={socialItems}
+        menuButtonColor="#fff"
+        openMenuButtonColor="#000"
+        accentColor="#5227FF"
+        logoUrl="/images/fis_robotics_logo.jpg"
+      />
+
+      {/* Top Section: Logo rechts, intro tekst links */}
+      <section style={{ position: "relative", zIndex: 1, padding: "6rem 2rem 4rem" }}>
+        <div className="max-w-7xl mx-auto">
+          <div className="flex flex-col md:flex-row items-center md:items-start gap-8 md:gap-12">
+            {/* Intro tekst links */}
+            <div className="flex-1 text-white">
+              <h1 className="text-4xl md:text-5xl font-bold mb-6">
+                Welkom bij FIS Robotics
+              </h1>
+              <p className="text-lg md:text-xl text-gray-200 leading-relaxed max-w-2xl">
+                FIS Robotics is een innovatief bedrijf gespecialiseerd in geavanceerde technologieën
+                en maatwerkoplossingen. We combineren expertise in robotica, software-ontwikkeling en
+                hardware-engineering om oplossingen te creëren die het verschil maken. Van medische
+                hulpmiddelen tot creatieve industrieën, wij zetten technologie in voor een betere toekomst.
+              </p>
+            </div>
+
+            {/* Logo rechts */}
+            <div className="flex-shrink-0">
+              <div className="relative w-64 h-32 md:w-80 md:h-40">
+                <Image
+                  src="/images/fis_robotics_logo.jpg"
+                  alt="FIS Robotics Logo"
+                  fill
+                  className="object-contain"
+                  priority
+                />
+              </div>
+            </div>
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
+      </section>
+
+      {/* Middle Section: Gecentreerde tekst */}
+      <section style={{ position: "relative", zIndex: 1, padding: "4rem 2rem" }}>
+        <div className="max-w-4xl mx-auto text-center">
+          <p className="text-2xl md:text-3xl font-semibold text-white leading-relaxed">
+            "Innovatie door technologie, oplossingen op maat"
+          </p>
+        </div>
+      </section>
+
+      {/* Carousel Section */}
+      <section style={{ position: "relative", zIndex: 1, padding: "2rem 0 6rem" }}>
+        <div className="max-w-7xl mx-auto px-4">
+          <AutoCarousel
+            items={carouselItems}
+            itemsToShow={3}
+            autoScrollSpeed={4000}
           />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+        </div>
+      </section>
+    </main>
   );
 }
