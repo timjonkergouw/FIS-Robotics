@@ -7,7 +7,7 @@ import { AutoCarousel } from "./components/AutoCarousel";
 import { useLanguage } from "./contexts/LanguageContext";
 
 export default function Home() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
 
   const items = useMemo(
     () => [
@@ -86,7 +86,7 @@ export default function Home() {
           <div className="flex flex-col md:flex-row items-center md:items-start gap-8 md:gap-12">
             {/* Intro tekst links */}
             <div className="flex-1 text-white">
-              <h1 className="text-4xl md:text-5xl font-bold mb-6 uppercase">
+              <h1 key={`title-${language}`} className="text-4xl md:text-5xl font-bold mb-6 uppercase">
                 <div>{t("home.title.line1")}</div>
                 <div>{t("home.title.line2")}</div>
               </h1>
@@ -114,7 +114,11 @@ export default function Home() {
       {/* Middle Section: Gecentreerde tekst */}
       <section style={{ position: "relative", zIndex: 1, padding: "4rem 2rem" }}>
         <div className="max-w-4xl mx-auto text-center">
-          <p className="text-2xl md:text-3xl font-semibold text-white leading-relaxed">
+          <p
+            key={`quote-${language}`}
+            className="text-2xl md:text-3xl font-semibold text-white leading-relaxed"
+            style={{ transition: "opacity 0.2s ease-in-out" }}
+          >
             &ldquo;{t("home.quote")}&rdquo;
           </p>
         </div>
