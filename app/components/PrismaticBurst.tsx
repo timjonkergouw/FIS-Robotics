@@ -256,13 +256,17 @@ const PrismaticBurst: React.FC<PrismaticBurstProps> = ({
         });
         rendererRef.current = renderer as unknown as Renderer;
 
-        const gl = (renderer as any).gl as WebGL2RenderingContext;
-        gl.canvas.style.position = 'absolute';
-        gl.canvas.style.inset = '0';
-        gl.canvas.style.width = '100%';
-        gl.canvas.style.height = '100%';
-        (gl.canvas.style as any).mixBlendMode = mixBlendMode && mixBlendMode !== 'none' ? mixBlendMode : '';
-        container.appendChild(gl.canvas);
+        const gl = renderer.gl;
+        if (gl.canvas instanceof HTMLCanvasElement) {
+            gl.canvas.style.position = 'absolute';
+            gl.canvas.style.inset = '0';
+            gl.canvas.style.width = '100%';
+            gl.canvas.style.height = '100%';
+            if (mixBlendMode && mixBlendMode !== 'none') {
+                gl.canvas.style.mixBlendMode = mixBlendMode;
+            }
+            container.appendChild(gl.canvas);
+        }
 
         const white = new Uint8Array([255, 255, 255, 255]);
         const gradientTex = new Texture(gl, {
@@ -314,11 +318,14 @@ const PrismaticBurst: React.FC<PrismaticBurstProps> = ({
         };
 
         let ro: ResizeObserver | null = null;
-        if ('ResizeObserver' in window) {
-            ro = new ResizeObserver(resize);
-            ro.observe(container);
-        } else {
-            window.addEventListener('resize', resize);
+        if (typeof window !== 'undefined') {
+            const win = window as Window;
+            if ('ResizeObserver' in win) {
+                ro = new ResizeObserver(resize);
+                ro.observe(container);
+            } else {
+                win.addEventListener('resize', resize);
+            }
         }
         resize();
 

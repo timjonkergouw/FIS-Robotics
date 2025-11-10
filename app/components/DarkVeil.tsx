@@ -105,7 +105,7 @@ export default function DarkVeil({
             canvas
         });
 
-        const gl = (renderer as any).gl as WebGL2RenderingContext;
+        const gl = renderer.gl;
         const geometry = new Triangle(gl);
 
         const program = new Program(gl, {

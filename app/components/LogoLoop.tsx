@@ -34,7 +34,7 @@ const LogoLoop: React.FC<LogoLoopProps> = ({
 }) => {
     const trackRef = useRef<HTMLDivElement>(null);
     const [isHovered, setIsHovered] = useState(false);
-    const animationRef = useRef<number>();
+    const animationRef = useRef<number | undefined>(undefined);
     const currentXRef = useRef(0);
     const targetSpeedRef = useRef(speed);
     const currentSpeedRef = useRef(speed);
@@ -64,12 +64,12 @@ const LogoLoop: React.FC<LogoLoopProps> = ({
                 // Gradually interpolate current speed towards target speed
                 const speedDiff = targetSpeedRef.current - currentSpeedRef.current;
                 currentSpeedRef.current += speedDiff * 0.1; // Smooth interpolation factor (0.1 = 10% per frame)
-                
+
                 // Stop interpolation when very close to target
                 if (Math.abs(speedDiff) < 0.1) {
                     currentSpeedRef.current = targetSpeedRef.current;
                 }
-                
+
                 const increment = direction === 'left' ? -currentSpeedRef.current / 60 : currentSpeedRef.current / 60; // 60fps
 
                 currentXRef.current += increment;
@@ -100,7 +100,7 @@ const LogoLoop: React.FC<LogoLoopProps> = ({
             }
             clearTimeout(timeoutId);
         };
-    }, [speed, direction, logosLength]);
+    }, [speed, direction, logosLength, logos]);
 
     const handleMouseEnter = () => {
         setIsHovered(true);

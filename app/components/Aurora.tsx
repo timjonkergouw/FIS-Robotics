@@ -132,11 +132,13 @@ export default function Aurora(props: AuroraProps) {
             premultipliedAlpha: true,
             antialias: true
         });
-        const gl = (renderer as any).gl as WebGL2RenderingContext;
+        const gl = renderer.gl;
         gl.clearColor(0, 0, 0, 0);
         gl.enable(gl.BLEND);
         gl.blendFunc(gl.ONE, gl.ONE_MINUS_SRC_ALPHA);
-        (gl.canvas.style as any).backgroundColor = 'transparent';
+        if (gl.canvas instanceof HTMLCanvasElement) {
+            gl.canvas.style.backgroundColor = 'transparent';
+        }
 
         let program: Program | null = null;
 
@@ -144,7 +146,7 @@ export default function Aurora(props: AuroraProps) {
             if (!ctn) return;
             const width = ctn.offsetWidth;
             const height = ctn.offsetHeight;
-            (renderer as any).setSize(width, height);
+            renderer.setSize(width, height);
             if (program) {
                 (program as any).uniforms.uResolution.value = [width, height];
             }

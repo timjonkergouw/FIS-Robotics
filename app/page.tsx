@@ -113,7 +113,7 @@ export default function Home() {
       <section style={{ position: "relative", zIndex: 1, padding: "4rem 2rem" }}>
         <div className="max-w-4xl mx-auto text-center">
           <p className="text-2xl md:text-3xl font-semibold text-white leading-relaxed">
-            "Innovatie door technologie, oplossingen op maat"
+            &ldquo;Innovatie door technologie, oplossingen op maat&rdquo;
           </p>
         </div>
       </section>
