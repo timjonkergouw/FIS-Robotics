@@ -1,7 +1,9 @@
 "use client";
 import React, { useMemo } from "react";
+import Image from "next/image";
 import { StaggeredMenu } from "../components/StaggeredMenu";
 import DarkVeil from "../components/DarkVeil";
+import { AutoCarousel } from "../components/AutoCarousel";
 
 export default function Page() {
     const items = useMemo(
@@ -32,6 +34,40 @@ export default function Page() {
         []
     );
 
+    const carouselItems = useMemo(
+        () => [
+            {
+                id: "zitschalen",
+                title: "Zitschalen / Zitortheses",
+                description: "Innovatieve zitoplossingen op maat gemaakt voor optimaal comfort en ondersteuning. Onze zitschalen en zitortheses worden met precisie ontworpen en geproduceerd.",
+                image: "/images/zitschalen.jpg",
+                link: "/fisrobotics/zitschalen"
+            },
+            {
+                id: "creatief",
+                title: "Creatieve Industrie",
+                description: "We combineren technologie met creativiteit om unieke oplossingen te ontwikkelen voor de creatieve sector. Van kunstinstallaties tot interactieve ervaringen.",
+                image: "/images/creatief.jpg",
+                link: "/fisrobotics/creatief"
+            },
+            {
+                id: "smartcam",
+                title: "SmartCAM",
+                description: "Geavanceerde CAM-software voor precisiebewerking en geautomatiseerde productieprocessen. Optimaliseer uw productie met intelligente technologie.",
+                image: "/images/smartcam.jpg",
+                link: "/fisrobotics/smartcam"
+            },
+            {
+                id: "hardware",
+                title: "Hardware",
+                description: "Robuuste en betrouwbare hardwareoplossingen voor diverse toepassingen. Van elektronische componenten tot complete systemen op maat.",
+                image: "/images/hardware.jpg",
+                link: "/fisrobotics/hardware"
+            }
+        ],
+        []
+    );
+
     return (
         <main style={{ minHeight: "100dvh", position: "relative" }}>
             <div style={{ position: "absolute", inset: 0, zIndex: 0 }}>
@@ -47,9 +83,58 @@ export default function Page() {
                 accentColor="#5227FF"
                 logoUrl="/images/fis_robotics_logo.jpg"
             />
-            <section style={{ position: "relative", zIndex: 1, padding: "8rem 2rem" }}>
-                <h1 style={{ fontSize: 48, fontWeight: 700, marginBottom: 16 }}>FIS Robotics</h1>
-                <p>Welkom op de FIS Robotics pagina.</p>
+            
+            {/* Top Section: Logo rechts, intro tekst links */}
+            <section style={{ position: "relative", zIndex: 1, padding: "6rem 2rem 4rem" }}>
+                <div className="max-w-7xl mx-auto">
+                    <div className="flex flex-col md:flex-row items-center md:items-start gap-8 md:gap-12">
+                        {/* Intro tekst links */}
+                        <div className="flex-1 text-white">
+                            <h1 className="text-4xl md:text-5xl font-bold mb-6">
+                                Welkom bij FIS Robotics
+                            </h1>
+                            <p className="text-lg md:text-xl text-gray-200 leading-relaxed max-w-2xl">
+                                FIS Robotics is een innovatief bedrijf gespecialiseerd in geavanceerde technologieën 
+                                en maatwerkoplossingen. We combineren expertise in robotica, software-ontwikkeling en 
+                                hardware-engineering om oplossingen te creëren die het verschil maken. Van medische 
+                                hulpmiddelen tot creatieve industrieën, wij zetten technologie in voor een betere toekomst.
+                            </p>
+                        </div>
+                        
+                        {/* Logo rechts */}
+                        <div className="flex-shrink-0">
+                            <div className="relative w-64 h-32 md:w-80 md:h-40">
+                                <Image
+                                    src="/images/fis_robotics_logo.jpg"
+                                    alt="FIS Robotics Logo"
+                                    fill
+                                    className="object-contain"
+                                    priority
+                                />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* Middle Section: Gecentreerde tekst */}
+            <section style={{ position: "relative", zIndex: 1, padding: "4rem 2rem" }}>
+                <div className="max-w-4xl mx-auto text-center">
+                    <p className="text-2xl md:text-3xl font-semibold text-white leading-relaxed">
+                        "Innovatie door technologie, oplossingen op maat"
+                    </p>
+                </div>
+            </section>
+
+            {/* Carousel Section */}
+            <section style={{ position: "relative", zIndex: 1, padding: "2rem 0 6rem" }}>
+                <div className="max-w-7xl mx-auto px-4">
+                    <AutoCarousel 
+                        items={carouselItems} 
+                        itemsToShow={3}
+                        autoScrollSpeed={4000}
+                    />
+                </div>
             </section>
         </main>
     );
