@@ -97,13 +97,14 @@ export default function Home() {
 
             {/* Logo rechts */}
             <div className="flex-shrink-0">
-              <div className="relative w-64 h-32 md:w-80 md:h-40">
+              <div className="relative w-96 h-48 md:w-[32rem] md:h-64">
                 <Image
-                  src="/images/fis_robotics_logo.jpg"
+                  src="/images/fis-icon.png"
                   alt="FIS Robotics Logo"
                   fill
                   className="object-contain"
                   priority
+                  style={{ filter: "drop-shadow(0 2px 8px rgba(255,255,255,0.9)) drop-shadow(0 0 18px rgba(255,255,255,0.6))" }}
                 />
               </div>
             </div>
