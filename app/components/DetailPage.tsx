@@ -89,38 +89,40 @@ export const DetailPage: React.FC<DetailPageProps> = ({
                 marginBottom: "4rem",
               }}
             >
-              <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12">
-                {/* Image */}
-                <div
-                  className={`w-full md:w-1/2 ${
-                    section.imagePosition === "right" ? "md:order-2" : "md:order-1"
-                  }`}
-                >
-                  <div className="relative w-full h-64 md:h-96 rounded-lg overflow-hidden">
-                    <Image
-                      src={section.image}
-                      alt={section.text.substring(0, 50)}
-                      fill
-                      className="object-cover"
-                      sizes="(max-width: 768px) 100vw, 50vw"
-                      onError={(e) => {
-                        const target = e.target as HTMLImageElement;
-                        target.style.display = "none";
-                      }}
-                    />
+              <div className="relative bg-black/40 rounded-lg p-6 md:p-8">
+                <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12">
+                  {/* Image */}
+                  <div
+                    className={`w-full md:w-1/2 ${
+                      section.imagePosition === "right" ? "md:order-2" : "md:order-1"
+                    }`}
+                  >
+                    <div className="relative w-full h-64 md:h-96 rounded-lg overflow-hidden bg-gray-700">
+                      <Image
+                        src={section.image}
+                        alt={section.text.substring(0, 50)}
+                        fill
+                        className="object-cover"
+                        sizes="(max-width: 768px) 100vw, 50vw"
+                        onError={(e) => {
+                          const target = e.target as HTMLImageElement;
+                          target.style.display = "none";
+                        }}
+                      />
+                    </div>
                   </div>
-                </div>
 
-                {/* Text */}
-                <div
-                  className={`w-full md:w-1/2 ${
-                    section.imagePosition === "right" ? "md:order-1" : "md:order-2"
-                  }`}
-                >
-                  <div className="bg-black/60 backdrop-blur-sm rounded-lg p-6 md:p-8 border border-white/20">
-                    <p className="text-white text-lg leading-relaxed">
-                      {section.text}
-                    </p>
+                  {/* Text */}
+                  <div
+                    className={`w-full md:w-1/2 ${
+                      section.imagePosition === "right" ? "md:order-1" : "md:order-2"
+                    }`}
+                  >
+                    <div className="bg-black/60 backdrop-blur-sm rounded-lg p-6 md:p-8 border border-white/20">
+                      <p className="text-white text-lg leading-relaxed">
+                        {section.text}
+                      </p>
+                    </div>
                   </div>
                 </div>
               </div>
