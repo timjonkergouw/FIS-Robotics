@@ -795,18 +795,17 @@
   }
 }
 
-/* Detail Page Animations */
+/* Detail Page Styles */
 .detail-section {
-  opacity: 0;
-  transform: translateY(50px);
-  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  opacity: 1;
+  transform: none;
 }
 
 .detail-section.animate-in {
   opacity: 1;
-  transform: translateY(0);
+  transform: none;
 }
 
 .detail-section-reverse {
-  animation-delay: 0.1s;
+  /* No animation */
 }

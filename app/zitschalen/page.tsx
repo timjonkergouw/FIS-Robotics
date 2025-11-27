@@ -35,19 +35,19 @@ export default function ZitschalenPage() {
   const sections = useMemo(
     () => [
       {
-        image: "/images/zitschalen.jpg",
-        text: "Onze zitschalen en zitortheses worden met uiterste precisie ontworpen en geproduceerd. We gebruiken geavanceerde 3D-scanning technologie om een perfecte pasvorm te garanderen voor elke individuele gebruiker. Onze oplossingen bieden optimaal comfort en ondersteuning, waardoor dagelijks gebruik aanzienlijk wordt verbeterd.",
-        imagePosition: "left" as const,
-      },
-      {
-        image: "/images/zitschalen2.jpg",
-        text: "Met jarenlange ervaring in de medische sector hebben we een diepgaand begrip ontwikkeld van de behoeften van gebruikers. Onze zitschalen worden gemaakt van hoogwaardige materialen die duurzaamheid combineren met comfort. We werken nauw samen met zorgverleners om ervoor te zorgen dat onze producten voldoen aan de hoogste medische standaarden.",
+        image: "",
+        text: "Bij FIS Robotics ontwikkelen we op maat gemaakte zitschalen en zitortheses die perfect aansluiten op de unieke lichaamsvorm van elke gebruiker. Door gebruik te maken van geavanceerde 3D-scantechnologie kunnen we tot op de millimeter nauwkeurig werken, wat resulteert in optimaal comfort en ondersteuning voor dagelijks gebruik.",
         imagePosition: "right" as const,
       },
       {
-        image: "/images/zitschalen3.jpg",
-        text: "Innovatie staat centraal in ons ontwikkelingsproces. We blijven nieuwe technologieën en materialen onderzoeken om onze producten continu te verbeteren. Ons team van experts staat klaar om u te helpen bij het vinden van de perfecte zitoplossing die aansluit bij uw specifieke behoeften en levensstijl.",
+        image: "",
+        text: "Onze zitoplossingen worden vervaardigd uit hoogwaardige, medisch gecertificeerde materialen die zowel lichtgewicht als extreem duurzaam zijn. We werken nauw samen met ergotherapeuten, fysiotherapeuten en revalidatieartsen om ervoor te zorgen dat elk product voldoet aan de hoogste medische standaarden en de levenskwaliteit van gebruikers significant verbetert.",
         imagePosition: "left" as const,
+      },
+      {
+        image: "",
+        text: "Innovatie staat centraal in alles wat we doen. Van het eerste consult tot de uiteindelijke levering begeleiden we u door het hele proces. Ons team van specialisten staat klaar om samen met u de perfecte zitoplossing te vinden die aansluit bij uw specifieke behoeften, mobiliteit en levensstijl.",
+        imagePosition: "right" as const,
       },
     ],
     []

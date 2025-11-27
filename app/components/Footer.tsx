@@ -3,6 +3,8 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useLanguage } from "../contexts/LanguageContext";
+import { FaLinkedin, FaFacebook, FaInstagram } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
 
 interface FooterProps {
   logoUrl?: string;
@@ -13,8 +15,15 @@ interface FooterProps {
   socialItems?: Array<{ label: string; link: string }>;
 }
 
+const socialIcons: Record<string, React.ReactNode> = {
+  LinkedIn: <FaLinkedin size={24} />,
+  Facebook: <FaFacebook size={24} />,
+  X: <FaXTwitter size={24} />,
+  Instagram: <FaInstagram size={24} />,
+};
+
 export const Footer: React.FC<FooterProps> = ({
-  logoUrl = "/images/fis_robotics_logo.jpg",
+  logoUrl = "/images/fis-plakaat.png",
   email = "info@fisrobotics.be",
   phone = "+31 6 123456789",
   address = "Goudstraat 13, Genk 1234AB",
@@ -45,6 +54,7 @@ export const Footer: React.FC<FooterProps> = ({
                 alt="FIS Robotics Logo"
                 fill
                 className="object-contain"
+                style={{ filter: "drop-shadow(0 2px 8px rgba(255,255,255,0.9)) drop-shadow(0 0 18px rgba(255,255,255,0.6))" }}
               />
             </div>
           </div>
@@ -85,24 +95,6 @@ export const Footer: React.FC<FooterProps> = ({
               </ul>
             </div>
 
-            {/* Socials */}
-            <div>
-              <h3 className="text-base font-bold mb-2">{t("footer.socials")}</h3>
-              <ul className="space-y-1.5 text-xs">
-                {socialItems.map((item, index) => (
-                  <li key={index}>
-                    <a
-                      href={item.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="hover:text-gray-300 transition-colors"
-                    >
-                      {item.label}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
           </div>
 
           {/* Desktop: Original layout */}
@@ -141,24 +133,24 @@ export const Footer: React.FC<FooterProps> = ({
               </ul>
             </div>
 
-            {/* Socials - Rechts */}
-            <div className="flex-1">
-              <h3 className="text-xl font-bold mb-4">{t("footer.socials")}</h3>
-              <ul className="space-y-2">
-                {socialItems.map((item, index) => (
-                  <li key={index}>
-                    <a
-                      href={item.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="hover:text-gray-300 transition-colors"
-                    >
-                      {item.label}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
+          </div>
+        </div>
+
+        {/* Social icons rechtsonder */}
+        <div className="flex justify-end mt-8">
+          <div className="flex gap-4">
+            {socialItems.map((item, index) => (
+              <a
+                key={index}
+                href={item.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-gray-300 transition-colors"
+                aria-label={item.label}
+              >
+                {socialIcons[item.label] || item.label}
+              </a>
+            ))}
           </div>
         </div>
       </div>

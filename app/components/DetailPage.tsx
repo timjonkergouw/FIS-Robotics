@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useRef } from "react";
+import React from "react";
 import Image from "next/image";
 import { SiteMenu } from "./SiteMenu";
 import { Footer } from "./Footer";
@@ -23,34 +23,6 @@ export const DetailPage: React.FC<DetailPageProps> = ({
   menuItems,
   socialItems,
 }) => {
-  const sectionRefs = useRef<(HTMLDivElement | null)[]>([]);
-
-  useEffect(() => {
-    const observerOptions = {
-      threshold: 0.15,
-      rootMargin: "0px 0px -50px 0px",
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("animate-in");
-        }
-      });
-    }, observerOptions);
-
-    const refs = sectionRefs.current;
-    refs.forEach((ref) => {
-      if (ref) observer.observe(ref);
-    });
-
-    return () => {
-      refs.forEach((ref) => {
-        if (ref) observer.unobserve(ref);
-      });
-    };
-  }, [sections.length]);
-
   return (
     <main style={{ minHeight: "100dvh", position: "relative" }}>
       <SiteMenu items={menuItems} socialItems={socialItems} showLogo={false} />
@@ -79,15 +51,10 @@ export const DetailPage: React.FC<DetailPageProps> = ({
           {sections.map((section, index) => (
             <div
               key={index}
-              ref={(el) => {
-                sectionRefs.current[index] = el;
-              }}
               className={`detail-section ${
                 section.imagePosition === "right" ? "detail-section-reverse" : ""
               }`}
-              style={{
-                marginBottom: "4rem",
-              }}
+              style={{ marginBottom: "4rem" }}
             >
               <div className="relative bg-black/40 rounded-lg p-6 md:p-8">
                 <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12">
@@ -97,18 +64,27 @@ export const DetailPage: React.FC<DetailPageProps> = ({
                       section.imagePosition === "right" ? "md:order-2" : "md:order-1"
                     }`}
                   >
-                    <div className="relative w-full h-64 md:h-96 rounded-lg overflow-hidden bg-gray-700">
-                      <Image
-                        src={section.image}
-                        alt={section.text.substring(0, 50)}
-                        fill
-                        className="object-cover"
-                        sizes="(max-width: 768px) 100vw, 50vw"
-                        onError={(e) => {
-                          const target = e.target as HTMLImageElement;
-                          target.style.display = "none";
-                        }}
-                      />
+                    <div
+                      className="relative w-full h-64 md:h-96 rounded-lg overflow-hidden border-2 border-dashed border-white/30 flex items-center justify-center"
+                      style={{ backgroundColor: "transparent" }}
+                    >
+                      {section.image && section.image.length > 0 ? (
+                        <Image
+                          src={section.image}
+                          alt={section.text.substring(0, 50)}
+                          fill
+                          className="object-cover"
+                          sizes="(max-width: 768px) 100vw, 50vw"
+                          onError={(e) => {
+                            const target = e.target as HTMLImageElement;
+                            target.style.display = "none";
+                          }}
+                        />
+                      ) : (
+                        <span className="text-white/50 text-lg">
+                          Afbeelding placeholder
+                        </span>
+                      )}
                     </div>
                   </div>
 
@@ -143,4 +119,3 @@ export const DetailPage: React.FC<DetailPageProps> = ({
     </main>
   );
 };
-
