@@ -1,25 +1,28 @@
 "use client";
 import React, { useMemo } from "react";
 import { DetailPage } from "../components/DetailPage";
+import { useLanguage } from "../contexts/LanguageContext";
 
 export default function SmartCAMPage() {
+  const { t } = useLanguage();
+
   const menuItems = useMemo(
     () => [
-      { label: "Home", link: "/" },
+      { label: t("menu.home"), link: "/" },
       {
-        label: "About us",
+        label: t("menu.about"),
         link: "#about",
         submenu: [
-          { label: "Zitschalen/Zitortheses", link: "/zitschalen" },
-          { label: "Creatieve Industrie", link: "/creatief" },
-          { label: "SmartCAM", link: "/smartcam" },
-          { label: "Hardware", link: "/hardware" },
+          { label: t("menu.zitschalen"), link: "/zitschalen" },
+          { label: t("menu.creatief"), link: "/creatief" },
+          { label: t("menu.smartcam"), link: "/smartcam" },
+          { label: t("menu.hardware"), link: "/hardware" },
         ],
       },
-      { label: "Team", link: "/team" },
-      { label: "Contact", link: "#contact" },
+      { label: t("menu.team"), link: "/team" },
+      { label: t("menu.contact"), link: "#contact" },
     ],
-    []
+    [t]
   );
 
   const socialItems = useMemo(
@@ -36,26 +39,26 @@ export default function SmartCAMPage() {
     () => [
       {
         image: "/images/smartcam.jpg",
-        text: "SmartCAM is onze geavanceerde CAM-software voor precisiebewerking en geautomatiseerde productieprocessen. Met intelligente algoritmes optimaliseert onze software productieprocessen, reduceert verspilling en verhoogt de efficiëntie. Onze oplossing is geschikt voor zowel kleine werkplaatsen als grote productiefaciliteiten.",
+        text: t("smartcam.section1"),
         imagePosition: "left" as const,
       },
       {
         image: "/images/smartcam2.jpg",
-        text: "De software maakt gebruik van machine learning om productiepatronen te analyseren en te optimaliseren. Real-time monitoring en aanpassingen zorgen ervoor dat elke bewerking wordt uitgevoerd met maximale precisie. Onze gebruikers rapporteren significante verbeteringen in productietijd en materiaalgebruik.",
+        text: t("smartcam.section2"),
         imagePosition: "right" as const,
       },
       {
         image: "/images/smartcam3.jpg",
-        text: "We bieden uitgebreide ondersteuning en training om ervoor te zorgen dat u het maximale uit SmartCAM haalt. Ons team staat klaar om u te helpen bij de implementatie en optimalisatie van uw productieprocessen. Met regelmatige updates blijven we voorop lopen in technologische ontwikkelingen.",
+        text: t("smartcam.section3"),
         imagePosition: "left" as const,
       },
     ],
-    []
+    [t]
   );
 
   return (
     <DetailPage
-      title="SmartCAM"
+      title={t("smartcam.title")}
       sections={sections}
       menuItems={menuItems}
       socialItems={socialItems}

@@ -1,25 +1,28 @@
 "use client";
 import React, { useMemo } from "react";
 import { DetailPage } from "../components/DetailPage";
+import { useLanguage } from "../contexts/LanguageContext";
 
 export default function ZitschalenPage() {
+  const { t } = useLanguage();
+
   const menuItems = useMemo(
     () => [
-      { label: "Home", link: "/" },
+      { label: t("menu.home"), link: "/" },
       {
-        label: "About us",
+        label: t("menu.about"),
         link: "#about",
         submenu: [
-          { label: "Zitschalen/Zitortheses", link: "/zitschalen" },
-          { label: "Creatieve Industrie", link: "/creatief" },
-          { label: "SmartCAM", link: "/smartcam" },
-          { label: "Hardware", link: "/hardware" },
+          { label: t("menu.zitschalen"), link: "/zitschalen" },
+          { label: t("menu.creatief"), link: "/creatief" },
+          { label: t("menu.smartcam"), link: "/smartcam" },
+          { label: t("menu.hardware"), link: "/hardware" },
         ],
       },
-      { label: "Team", link: "/team" },
-      { label: "Contact", link: "#contact" },
+      { label: t("menu.team"), link: "/team" },
+      { label: t("menu.contact"), link: "#contact" },
     ],
-    []
+    [t]
   );
 
   const socialItems = useMemo(
@@ -36,26 +39,26 @@ export default function ZitschalenPage() {
     () => [
       {
         image: "",
-        text: "Bij FIS Robotics ontwikkelen we op maat gemaakte zitschalen en zitortheses die perfect aansluiten op de unieke lichaamsvorm van elke gebruiker. Door gebruik te maken van geavanceerde 3D-scantechnologie kunnen we tot op de millimeter nauwkeurig werken, wat resulteert in optimaal comfort en ondersteuning voor dagelijks gebruik.",
+        text: t("zitschalen.section1"),
         imagePosition: "right" as const,
       },
       {
         image: "",
-        text: "Onze zitoplossingen worden vervaardigd uit hoogwaardige, medisch gecertificeerde materialen die zowel lichtgewicht als extreem duurzaam zijn. We werken nauw samen met ergotherapeuten, fysiotherapeuten en revalidatieartsen om ervoor te zorgen dat elk product voldoet aan de hoogste medische standaarden en de levenskwaliteit van gebruikers significant verbetert.",
+        text: t("zitschalen.section2"),
         imagePosition: "left" as const,
       },
       {
         image: "",
-        text: "Innovatie staat centraal in alles wat we doen. Van het eerste consult tot de uiteindelijke levering begeleiden we u door het hele proces. Ons team van specialisten staat klaar om samen met u de perfecte zitoplossing te vinden die aansluit bij uw specifieke behoeften, mobiliteit en levensstijl.",
+        text: t("zitschalen.section3"),
         imagePosition: "right" as const,
       },
     ],
-    []
+    [t]
   );
 
   return (
     <DetailPage
-      title="Zitschalen / Zitortheses"
+      title={t("zitschalen.title")}
       sections={sections}
       menuItems={menuItems}
       socialItems={socialItems}

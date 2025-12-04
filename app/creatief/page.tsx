@@ -1,25 +1,28 @@
 "use client";
 import React, { useMemo } from "react";
 import { DetailPage } from "../components/DetailPage";
+import { useLanguage } from "../contexts/LanguageContext";
 
 export default function CreatiefPage() {
+  const { t } = useLanguage();
+
   const menuItems = useMemo(
     () => [
-      { label: "Home", link: "/" },
+      { label: t("menu.home"), link: "/" },
       {
-        label: "About us",
+        label: t("menu.about"),
         link: "#about",
         submenu: [
-          { label: "Zitschalen/Zitortheses", link: "/zitschalen" },
-          { label: "Creatieve Industrie", link: "/creatief" },
-          { label: "SmartCAM", link: "/smartcam" },
-          { label: "Hardware", link: "/hardware" },
+          { label: t("menu.zitschalen"), link: "/zitschalen" },
+          { label: t("menu.creatief"), link: "/creatief" },
+          { label: t("menu.smartcam"), link: "/smartcam" },
+          { label: t("menu.hardware"), link: "/hardware" },
         ],
       },
-      { label: "Team", link: "/team" },
-      { label: "Contact", link: "#contact" },
+      { label: t("menu.team"), link: "/team" },
+      { label: t("menu.contact"), link: "#contact" },
     ],
-    []
+    [t]
   );
 
   const socialItems = useMemo(
@@ -36,26 +39,26 @@ export default function CreatiefPage() {
     () => [
       {
         image: "/images/creatief.jpg",
-        text: "We combineren technologie met creativiteit om unieke oplossingen te ontwikkelen voor de creatieve sector. Van interactieve kunstinstallaties tot innovatieve tentoonstellingsontwerpen, we helpen kunstenaars en creatieven hun visie tot leven te brengen met geavanceerde technologie.",
+        text: t("creatief.section1"),
         imagePosition: "left" as const,
       },
       {
         image: "/images/creatief2.jpg",
-        text: "Onze expertise in robotica en software-ontwikkeling stelt ons in staat om complexe creatieve projecten te realiseren. We werken samen met musea, galeries en kunstenaars om interactieve ervaringen te creëren die bezoekers betrekken en inspireren. Onze oplossingen zijn zowel technisch geavanceerd als artistiek verantwoord.",
+        text: t("creatief.section2"),
         imagePosition: "right" as const,
       },
       {
         image: "/images/creatief3.jpg",
-        text: "Innovatie en creativiteit gaan hand in hand in onze projecten. We geloven dat technologie een krachtig medium kan zijn voor artistieke expressie. Ons team combineert technische expertise met een diep begrip van de creatieve industrie om oplossingen te ontwikkelen die zowel functioneel als esthetisch zijn.",
+        text: t("creatief.section3"),
         imagePosition: "left" as const,
       },
     ],
-    []
+    [t]
   );
 
   return (
     <DetailPage
-      title="Creatieve Industrie"
+      title={t("creatief.title")}
       sections={sections}
       menuItems={menuItems}
       socialItems={socialItems}

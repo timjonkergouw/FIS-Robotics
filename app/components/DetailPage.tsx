@@ -3,6 +3,7 @@ import React from "react";
 import Image from "next/image";
 import { SiteMenu } from "./SiteMenu";
 import { Footer } from "./Footer";
+import { useLanguage } from "../contexts/LanguageContext";
 
 interface ContentSection {
   image: string;
@@ -23,6 +24,8 @@ export const DetailPage: React.FC<DetailPageProps> = ({
   menuItems,
   socialItems,
 }) => {
+  const { t } = useLanguage();
+
   return (
     <main style={{ minHeight: "100dvh", position: "relative" }}>
       <SiteMenu items={menuItems} socialItems={socialItems} showLogo={false} />
@@ -109,10 +112,10 @@ export const DetailPage: React.FC<DetailPageProps> = ({
 
       <Footer
         aboutItems={[
-          { label: "Zitschalen / Zitortheses", link: "/zitschalen" },
-          { label: "Creatieve Industrie", link: "/creatief" },
-          { label: "SmartCAM", link: "/smartcam" },
-          { label: "Hardware", link: "/hardware" },
+          { label: t("menu.zitschalen"), link: "/zitschalen" },
+          { label: t("menu.creatief"), link: "/creatief" },
+          { label: t("menu.smartcam"), link: "/smartcam" },
+          { label: t("menu.hardware"), link: "/hardware" },
         ]}
         socialItems={socialItems}
       />
