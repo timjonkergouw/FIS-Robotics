@@ -175,7 +175,7 @@ const translations = {
 };
 
 export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [language, setLanguageState] = useState<Language>("nl");
+  const [language, setLanguageState] = useState<Language>("en");
 
   useEffect(() => {
     // Load language from localStorage
