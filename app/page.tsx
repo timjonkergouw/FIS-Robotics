@@ -1,10 +1,9 @@
 "use client";
-import React, { useMemo } from "react";
+import React, { useMemo, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { SiteMenu } from "./components/SiteMenu";
 import { Footer } from "./components/Footer";
-import { AutoCarousel } from "./components/AutoCarousel";
 import { useLanguage } from "./contexts/LanguageContext";
 
 export default function Home() {
@@ -18,9 +17,7 @@ export default function Home() {
         link: "#about",
         submenu: [
           { label: t("menu.zitschalen"), link: "/zitschalen" },
-          { label: t("menu.creatief"), link: "/creatief" },
-          { label: t("menu.smartcam"), link: "/smartcam" },
-          { label: t("menu.hardware"), link: "/hardware" }
+          { label: t("menu.creatief"), link: "/creatief" }
         ]
       },
       { label: t("menu.team"), link: "/team" },
@@ -39,39 +36,17 @@ export default function Home() {
     []
   );
 
-  const carouselItems = useMemo(
-    () => [
-      {
-        id: "zitschalen",
-        title: t("carousel.zitschalen.title"),
-        description: t("carousel.zitschalen.description"),
-        image: "/images/zitschalen.jpg",
-        link: "/zitschalen"
-      },
-      {
-        id: "creatief",
-        title: t("carousel.creatief.title"),
-        description: t("carousel.creatief.description"),
-        image: "/images/creatief.jpg",
-        link: "/creatief"
-      },
-      {
-        id: "smartcam",
-        title: t("carousel.smartcam.title"),
-        description: t("carousel.smartcam.description"),
-        image: "/images/smartcam.jpg",
-        link: "/smartcam"
-      },
-      {
-        id: "hardware",
-        title: t("carousel.hardware.title"),
-        description: t("carousel.hardware.description"),
-        image: "/images/hardware.jpg",
-        link: "/hardware"
-      }
-    ],
-    [t]
+  const creativeImages = useMemo(
+    () => ["/images/ci1.jpg", "/images/ci2.jpg", "/images/ci3.jpg", "/images/ci4.jpg", "/images/ci5.jpg", "/images/ci6.jpg"],
+    []
   );
+  const [creativeIndex, setCreativeIndex] = useState(0);
+
+  const zitschalenImages = useMemo(
+    () => ["/images/zito1.jpg", "/images/zito2.jpg", "/images/zito3.jpg", "/images/zito4.jpg"],
+    []
+  );
+  const [zitschalenIndex, setZitschalenIndex] = useState(0);
 
   return (
     <main style={{ minHeight: "100dvh", position: "relative" }}>
@@ -81,112 +56,182 @@ export default function Home() {
         showLogo={false}
       />
 
-      {/* Top Section: Cirkel met logo en vier pagina-cirkels */}
-      <section style={{ position: "relative", zIndex: 1, padding: "6rem 2rem 4rem" }}>
-        <div className="max-w-5xl mx-auto flex flex-col items-center text-white gap-10">
-          {/* Centrale cirkel met logo en omringende navigatiecirkels */}
-          <div className="relative w-80 h-80 md:w-[26rem] md:h-[26rem] lg:w-[30rem] lg:h-[30rem]">
-            {/* Centrale cirkel met logo */}
-            <div className="absolute inset-1/2 -translate-x-1/2 -translate-y-1/2 w-36 h-36 md:w-44 md:h-44 rounded-full bg-white/10 border border-white/30 backdrop-blur-md flex items-center justify-center shadow-[0_0_40px_rgba(255,255,255,0.4)]">
-              <div className="relative w-28 h-28 md:w-32 md:h-32">
-                <Image
-                  src="/images/fis-icon.png"
-                  alt="FIS Robotics Logo"
-                  fill
-                  className="object-contain"
-                  priority
-                  style={{ filter: "drop-shadow(0 2px 8px rgba(255,255,255,0.9)) drop-shadow(0 0 18px rgba(255,255,255,0.6))" }}
-                />
-              </div>
+      {/* Hero section */}
+      <section className="pt-28 pb-10 px-4 text-white">
+        <div className="max-w-4xl mx-auto flex flex-col items-center text-center gap-6">
+          {/* FIS logo */}
+          <div className="relative mb-4 group">
+            <div className="relative mx-auto w-52 h-32 sm:w-64 sm:h-40 md:w-80 md:h-48 transition-transform duration-300 group-hover:scale-115">
+              <Image
+                src="/images/fis-icon.png"
+                alt="FIS Robotics"
+                fill
+                className="object-contain drop-shadow-[0_0_30px_rgba(37,99,255,0.9)] group-hover:drop-shadow-[0_0_55px_rgba(37,99,255,1)]"
+                priority
+                sizes="(max-width: 640px) 208px, (max-width: 768px) 256px, 320px"
+              />
             </div>
+          </div>
 
-            {/* Linksboven: Zitschalen / Zitortheses */}
+          {/* Ellipse buttons */}
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-6">
             <Link
               href="/zitschalen"
-              className="group absolute left-[8%] top-[8%] w-24 h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 rounded-full bg-white/10 border border-white/30 backdrop-blur-md flex items-center justify-center text-center text-xs md:text-sm font-semibold hover:bg-white/25 hover:scale-110 hover:shadow-[0_0_30px_rgba(255,255,255,0.6)] transition-transform transition-colors duration-200 cursor-pointer"
+              className="min-w-[280px] sm:min-w-[320px] h-14 sm:h-16 flex items-center justify-center rounded-[50%] bg-[#3d3d3d] text-xs sm:text-sm text-white border border-black/60 shadow-md hover:bg-[#4a4a4a] hover:scale-105 transition-all duration-200"
             >
-              <span className="px-3 leading-snug">
-                {t("menu.zitschalen")}
+              <span className="inline-flex flex-col items-center font-almost-textual">
+                <span>{t("home.hero.zitschalenTitle")}</span>
+                <span className="mt-0.5 h-1 w-full bg-[#2563ff] rounded-none" />
               </span>
             </Link>
-
-            {/* Rechtsboven: Creatieve Industrie */}
             <Link
               href="/creatief"
-              className="group absolute right-[8%] top-[8%] w-24 h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 rounded-full bg-white/10 border border-white/30 backdrop-blur-md flex items-center justify-center text-center text-xs md:text-sm font-semibold hover:bg-white/25 hover:scale-110 hover:shadow-[0_0_30px_rgba(255,255,255,0.6)] transition-transform transition-colors duration-200 cursor-pointer"
+              className="min-w-[280px] sm:min-w-[320px] h-14 sm:h-16 flex items-center justify-center rounded-[50%] bg-[#3d3d3d] text-xs sm:text-sm text-white border border-black/60 shadow-md hover:bg-[#4a4a4a] hover:scale-105 transition-all duration-200"
             >
-              <span className="px-3 leading-snug">
-                {t("menu.creatief")}
-              </span>
-            </Link>
-
-            {/* Linksonder: SmartCAM */}
-            <Link
-              href="/smartcam"
-              className="group absolute left-[8%] bottom-[8%] w-24 h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 rounded-full bg-white/10 border border-white/30 backdrop-blur-md flex items-center justify-center text-center text-xs md:text-sm font-semibold hover:bg-white/25 hover:scale-110 hover:shadow-[0_0_30px_rgba(255,255,255,0.6)] transition-transform transition-colors duration-200 cursor-pointer"
-            >
-              <span className="px-3 leading-snug">
-                {t("menu.smartcam")}
-              </span>
-            </Link>
-
-            {/* Rechtsonder: Hardware */}
-            <Link
-              href="/hardware"
-              className="group absolute right-[8%] bottom-[8%] w-24 h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 rounded-full bg-white/10 border border-white/30 backdrop-blur-md flex items-center justify-center text-center text-xs md:text-sm font-semibold hover:bg-white/25 hover:scale-110 hover:shadow-[0_0_30px_rgba(255,255,255,0.6)] transition-transform transition-colors duration-200 cursor-pointer"
-            >
-              <span className="px-3 leading-snug">
-                {t("menu.hardware")}
+              <span className="inline-flex flex-col items-center font-almost-textual">
+                <span>{t("home.hero.creatiefTitle")}</span>
+                <span className="mt-0.5 h-1 w-full bg-[#2563ff] rounded-none" />
               </span>
             </Link>
           </div>
 
-          {/* Titel en beschrijving onder de cirkels */}
-          <div className="max-w-2xl text-center">
-            <h1
-              key={`title-${language}`}
-              className="text-3xl md:text-4xl font-bold mb-4 uppercase"
-            >
-              <div>{t("home.title.line1")}</div>
-              <div>{t("home.title.line2")}</div>
-            </h1>
-            <p className="text-base md:text-lg text-gray-200 leading-relaxed">
-              {t("home.description")}
+          {/* Slogan + underline + subtext */}
+          <div className="flex flex-col items-center gap-3">
+            <div className="inline-flex flex-col items-center">
+              <h1 className="font-almost-textual text-2xl sm:text-3xl">
+                {t("home.hero.slogan")}
+              </h1>
+              <div className="h-2 w-full bg-[#2563ff] rounded-none mt-1" />
+            </div>
+            <p className="font-verdana-bold text-[11px] sm:text-xs text-gray-200 max-w-md leading-relaxed">
+              {t("home.hero.subtext")}
             </p>
           </div>
         </div>
       </section>
 
-      {/* Middle Section: Gecentreerde tekst */}
-      <section style={{ position: "relative", zIndex: 1, padding: "4rem 2rem" }}>
-        <div className="max-w-4xl mx-auto text-center">
-          <p
-            key={`quote-${language}`}
-            className="text-2xl md:text-3xl font-semibold text-white leading-relaxed"
-            style={{ transition: "opacity 0.2s ease-in-out" }}
-          >
-            &ldquo;{t("home.quote")}&rdquo;
-          </p>
+      {/* Central highlight box with looping video */}
+      <section className="pb-10 px-4">
+        <div className="max-w-3xl mx-auto">
+          <div className="rounded-3xl border-[6px] border-[#2563ff] bg-[#d9d9d9] h-56 sm:h-64 md:h-72 shadow-[0_0_25px_rgba(37,99,255,0.45)] overflow-hidden flex items-center justify-center">
+            <video
+              src="/images/fisideo.mp4"
+              className="w-full h-full object-cover"
+              autoPlay
+              loop
+              muted
+              playsInline
+            />
+          </div>
         </div>
       </section>
 
-      {/* Carousel Section */}
-      <section style={{ position: "relative", zIndex: 1, padding: "2rem 0 6rem" }}>
-        <div className="max-w-7xl mx-auto px-4">
-          <AutoCarousel
-            items={carouselItems}
-            itemsToShow={3}
-            autoScrollSpeed={4000}
-          />
+      {/* Bottom cards */}
+      <section className="pb-16 px-4">
+        <div className="max-w-4xl mx-auto flex flex-col md:flex-row gap-6">
+          {/* Zitschalen card */}
+          <div className="flex-1 bg-[#181818] border border-white/15 rounded-xl overflow-hidden shadow-md">
+            <div className="relative h-52 sm:h-60 bg-[#d9d9d9] overflow-hidden">
+              <Image
+                src={zitschalenImages[zitschalenIndex]}
+                alt={`Zitschalen ${zitschalenIndex + 1}`}
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, 50vw"
+              />
+              <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-2">
+                {zitschalenImages.map((_, idx) => (
+                  <button
+                    key={idx}
+                    type="button"
+                    onClick={(event) => {
+                      event.preventDefault();
+                      event.stopPropagation();
+                      setZitschalenIndex(idx);
+                    }}
+                    className={`w-2.5 h-2.5 rounded-full border border-white/70 transition-colors ${idx === zitschalenIndex ? "bg-white" : "bg-white/20"
+                      }`}
+                    aria-label={`Toon zitschalen afbeelding ${idx + 1}`}
+                  />
+                ))}
+              </div>
+            </div>
+            <div className="p-4 sm:p-5 text-white flex flex-col gap-3">
+              <div className="inline-flex flex-col items-start mb-3 w-fit">
+                <h3 className="font-almost-textual text-base sm:text-lg">
+                  {t("home.cards.zitschalenTitle")}
+                </h3>
+                <div className="h-2 w-full bg-[#2563ff] rounded-none mt-1" />
+              </div>
+              <p className="font-verdana-bold text-[11px] sm:text-xs text-gray-200 leading-relaxed">
+                {t("home.cards.zitschalenBody")}
+              </p>
+              <div>
+                <Link
+                  href="/zitschalen"
+                  className="inline-flex items-center justify-center px-5 py-2 bg-[#2563ff] text-[11px] sm:text-xs font-verdana-bold text-white hover:bg-[#3b82ff] transition-colors rounded-none"
+                >
+                  {t("home.cards.moreDetails")}
+                </Link>
+              </div>
+            </div>
+          </div>
+
+          {/* Creative Industry card */}
+          <div className="flex-1 bg-[#181818] border border-white/15 rounded-xl overflow-hidden shadow-md">
+            <div className="relative h-52 sm:h-60 bg-[#d9d9d9] overflow-hidden">
+              <Image
+                src={creativeImages[creativeIndex]}
+                alt={`Creative industry ${creativeIndex + 1}`}
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, 50vw"
+              />
+              <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-2">
+                {creativeImages.map((_, idx) => (
+                  <button
+                    key={idx}
+                    type="button"
+                    onClick={(event) => {
+                      event.preventDefault();
+                      event.stopPropagation();
+                      setCreativeIndex(idx);
+                    }}
+                    className={`w-2.5 h-2.5 rounded-full border border-white/70 transition-colors ${idx === creativeIndex ? "bg-white" : "bg-white/20"
+                      }`}
+                    aria-label={`Toon afbeelding ${idx + 1}`}
+                  />
+                ))}
+              </div>
+            </div>
+            <div className="p-4 sm:p-5 text-white flex flex-col gap-3">
+              <div className="inline-flex flex-col items-start mb-3 w-fit">
+                <h3 className="font-almost-textual text-base sm:text-lg">
+                  {t("home.cards.creatiefTitle")}
+                </h3>
+                <div className="h-2 w-full bg-[#2563ff] rounded-none mt-1" />
+              </div>
+              <p className="font-verdana-bold text-[11px] sm:text-xs text-gray-200 leading-relaxed">
+                {t("home.cards.creatiefBody")}
+              </p>
+              <div>
+                <Link
+                  href="/creatief"
+                  className="inline-flex items-center justify-center px-5 py-2 bg-[#2563ff] text-[11px] sm:text-xs font-verdana-bold text-white hover:bg-[#3b82ff] transition-colors rounded-none"
+                >
+                  {t("home.cards.moreDetails")}
+                </Link>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
+      {/* Footer */}
       <Footer
         aboutItems={[
           { label: t("menu.zitschalen"), link: "/zitschalen" },
-          { label: t("menu.creatief"), link: "/creatief" },
-          { label: t("menu.smartcam"), link: "/smartcam" },
-          { label: t("menu.hardware"), link: "/hardware" }
+          { label: t("menu.creatief"), link: "/creatief" }
         ]}
         socialItems={socialItems}
       />

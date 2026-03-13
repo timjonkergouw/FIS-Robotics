@@ -30,6 +30,10 @@ const translations = {
     "home.description": "FIS Robotics is een innovatief bedrijf gespecialiseerd in geavanceerde technologieën en maatwerkoplossingen. We combineren expertise in robotica, software-ontwikkeling en hardware-engineering om oplossingen te creëren die het verschil maken. Van medische hulpmiddelen tot creatieve industrieën, wij zetten technologie in voor een betere toekomst.",
     "home.quote": "Innovatie door technologie, oplossingen op maat",
     "home.moreInfo": "Meer informatie",
+    "home.hero.zitschalenTitle": "ZITSCHALEN / ZITORTHESIS",
+    "home.hero.creatiefTitle": "CREATIVE INDUSTRY",
+    "home.hero.slogan": "\"FIRST IN SERVICE.\"",
+    "home.hero.subtext": "Uw innovatiespecialist voor geavanceerde technologie en maatwerkoplossingen. Wij combineren expertise in robotica.",
     
     // Carousel items
     "carousel.zitschalen.title": "Zitschalen / Zitortheses",
@@ -40,6 +44,13 @@ const translations = {
     "carousel.smartcam.description": "Geavanceerde CAM-software voor precisiebewerking en geautomatiseerde productieprocessen. Optimaliseer uw productie met intelligente technologie.",
     "carousel.hardware.title": "Hardware",
     "carousel.hardware.description": "Robuuste en betrouwbare hardwareoplossingen voor diverse toepassingen. Van elektronische componenten tot complete systemen op maat.",
+    
+    // Homepage cards
+    "home.cards.zitschalenTitle": "ZITSCHALEN / ZITORTHESIS",
+    "home.cards.zitschalenBody": "We gebruiken geavanceerde 3D-printtechnologie om zitoplossingen op maat te creëren die comfort, ondersteuning en levenskwaliteit verbeteren.",
+    "home.cards.creatiefTitle": "CREATIVE INDUSTRY",
+    "home.cards.creatiefBody": "We ontwerpen en 3D-printen unieke objecten en decoratieve stukken die ideeën tot leven brengen met een sterk visueel effect.",
+    "home.cards.moreDetails": "Meer details",
     
     // Footer
     "footer.contact": "Contact",
@@ -110,6 +121,10 @@ const translations = {
     "home.description": "FIS Robotics is an innovative company specialized in advanced technologies and custom solutions. We combine expertise in robotics, software development and hardware engineering to create solutions that make a difference. From medical aids to creative industries, we use technology for a better future.",
     "home.quote": "Innovation through technology, custom solutions",
     "home.moreInfo": "More information",
+    "home.hero.zitschalenTitle": "SEATING SHELLS / ORTHOSES",
+    "home.hero.creatiefTitle": "CREATIVE INDUSTRY",
+    "home.hero.slogan": "\"FIRST IN SERVICE.\"",
+    "home.hero.subtext": "Your innovation specialist for advanced technologies and customized solutions. We combine expertise in robotics.",
     
     // Carousel items
     "carousel.zitschalen.title": "Seating Shells / Orthoses",
@@ -120,6 +135,13 @@ const translations = {
     "carousel.smartcam.description": "Advanced CAM software for precision machining and automated production processes. Optimize your production with intelligent technology.",
     "carousel.hardware.title": "Hardware",
     "carousel.hardware.description": "Robust and reliable hardware solutions for various applications. From electronic components to complete custom systems.",
+    
+    // Homepage cards
+    "home.cards.zitschalenTitle": "SEATING SHELLS / ORTHOSES",
+    "home.cards.zitschalenBody": "We use advanced 3D printing technology to create seating solutions that improve comfort, support and quality of life.",
+    "home.cards.creatiefTitle": "CREATIVE INDUSTRY",
+    "home.cards.creatiefBody": "We design and 3D print custom figures and decorative pieces that bring events and special concepts to life with strong visual impact.",
+    "home.cards.moreDetails": "More details",
     
     // Footer
     "footer.contact": "Contact",

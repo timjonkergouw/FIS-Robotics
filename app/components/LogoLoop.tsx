@@ -13,7 +13,6 @@ type LogoLoopProps = {
     direction?: 'left' | 'right';
     logoHeight?: number;
     gap?: number;
-    pauseOnHover?: boolean;
     scaleOnHover?: boolean;
     fadeOut?: boolean;
     fadeOutColor?: string;
@@ -26,7 +25,6 @@ const LogoLoop: React.FC<LogoLoopProps> = ({
     direction = 'left',
     logoHeight = 28,
     gap = 32,
-    pauseOnHover = false,
     scaleOnHover = false,
     fadeOut = false,
     fadeOutColor = '#ffffff',

@@ -32,7 +32,7 @@ export const LanguageSwitcher: React.FC = () => {
     <div className="sm-logo relative" ref={dropdownRef}>
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center justify-center text-white font-medium text-sm md:text-base px-3 py-2 rounded-lg hover:bg-white/10 transition-colors"
+        className="flex items-center justify-center text-white font-almost-textual text-sm md:text-base px-3 py-2 rounded-lg hover:bg-white/10 transition-colors"
         aria-label="Select language"
         aria-expanded={isOpen}
         style={{ minWidth: "80px" }}
@@ -57,7 +57,7 @@ export const LanguageSwitcher: React.FC = () => {
                 setLanguage(lang.code);
                 setIsOpen(false);
               }}
-              className={`w-full text-left px-4 py-2 text-sm md:text-base text-white hover:bg-white/20 transition-colors ${
+              className={`w-full text-left px-4 py-2 text-sm md:text-base text-white font-almost-textual hover:bg-white/20 transition-colors ${
                 language === lang.code ? "bg-white/15 font-semibold" : ""
               }`}
             >

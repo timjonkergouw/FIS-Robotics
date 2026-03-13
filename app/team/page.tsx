@@ -57,7 +57,7 @@ export default function TeamPage() {
       <section style={{ position: "relative", zIndex: 1, padding: "8rem 2rem 6rem" }}>
         <div className="max-w-7xl mx-auto">
           <div className="bg-white/10 backdrop-blur-sm rounded-3xl p-8 md:p-12 border border-white/20 shadow-lg">
-            <h1 className="text-4xl md:text-5xl font-bold text-white mb-12 text-center">
+            <h1 className="text-4xl md:text-5xl font-almost-textual text-white mb-12 text-center">
               {t("team.title")}
             </h1>
             
@@ -65,10 +65,10 @@ export default function TeamPage() {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
               {teamMembers.slice(0, 3).map((member, index) => (
                 <div key={index} className="text-center">
-                  <h3 className="text-2xl md:text-3xl font-bold text-white mb-2">
+                  <h3 className="text-2xl md:text-3xl font-almost-textual text-white mb-2">
                     {member.name}
                   </h3>
-                  <p className="text-lg md:text-xl text-gray-300">
+                  <p className="text-lg md:text-xl text-gray-300 font-verdana-bold">
                     {member.role}
                   </p>
                 </div>
@@ -92,10 +92,10 @@ export default function TeamPage() {
             {/* Third row: 1 team member centered */}
             <div className="flex justify-center">
               <div className="text-center">
-                <h3 className="text-2xl md:text-3xl font-bold text-white mb-2">
+                <h3 className="text-2xl md:text-3xl font-almost-textual text-white mb-2">
                   {teamMembers[6].name}
                 </h3>
-                <p className="text-lg md:text-xl text-gray-300">
+                <p className="text-lg md:text-xl text-gray-300 font-verdana-bold">
                   {teamMembers[6].role}
                 </p>
               </div>
@@ -108,8 +108,6 @@ export default function TeamPage() {
         aboutItems={[
           { label: t("menu.zitschalen"), link: "/zitschalen" },
           { label: t("menu.creatief"), link: "/creatief" },
-          { label: t("menu.smartcam"), link: "/smartcam" },
-          { label: t("menu.hardware"), link: "/hardware" },
         ]}
         socialItems={socialItems}
       />

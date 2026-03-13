@@ -40,7 +40,7 @@ export const DetailPage: React.FC<DetailPageProps> = ({
         }}
       >
         <div className="max-w-7xl mx-auto">
-          <h1 className="text-5xl md:text-7xl font-bold text-white mb-8">
+          <h1 className="text-5xl md:text-7xl font-almost-textual text-white mb-8">
             {title}
           </h1>
         </div>
@@ -56,7 +56,7 @@ export const DetailPage: React.FC<DetailPageProps> = ({
               key={index}
               className={`detail-section ${
                 section.imagePosition === "right" ? "detail-section-reverse" : ""
-              }`}
+              } animate-fade-in-up-soft`}
               style={{ marginBottom: "4rem" }}
             >
               <div className="relative bg-black/40 rounded-lg p-6 md:p-8">
@@ -98,7 +98,7 @@ export const DetailPage: React.FC<DetailPageProps> = ({
                     }`}
                   >
                     <div className="bg-black/60 backdrop-blur-sm rounded-lg p-6 md:p-8 border border-white/20">
-                      <p className="text-white text-lg leading-relaxed">
+                      <p className="text-white text-lg leading-relaxed font-verdana-bold">
                         {section.text}
                       </p>
                     </div>
@@ -114,8 +114,6 @@ export const DetailPage: React.FC<DetailPageProps> = ({
         aboutItems={[
           { label: t("menu.zitschalen"), link: "/zitschalen" },
           { label: t("menu.creatief"), link: "/creatief" },
-          { label: t("menu.smartcam"), link: "/smartcam" },
-          { label: t("menu.hardware"), link: "/hardware" },
         ]}
         socialItems={socialItems}
       />

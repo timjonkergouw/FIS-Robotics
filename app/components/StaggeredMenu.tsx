@@ -442,7 +442,7 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
                 )}
                 <button
                     ref={toggleBtnRef}
-                    className="sm-toggle"
+                    className="sm-toggle font-almost-textual"
                     aria-label={open ? "Close menu" : "Open menu"}
                     aria-expanded={open}
                     aria-controls="staggered-menu-panel"
@@ -478,7 +478,7 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
                                                 onClick={() => toggleSubmenu(it.label)}
                                                 aria-expanded={openSubmenu === it.label}
                                             >
-                                                <span className="sm-panel-itemLabel">{it.label}</span>
+                                                <span className="sm-panel-itemLabel font-almost-textual">{it.label}</span>
                                                 <span className={`sm-submenu-arrow ${openSubmenu === it.label ? 'sm-submenu-arrow-open' : ''}`}>
                                                     +
                                                 </span>
@@ -487,11 +487,11 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
                                                 {it.submenu.map((subItem, subIdx) => (
                                                     <li key={subItem.label + subIdx} className="sm-submenu-item">
                                                         {subItem.link?.startsWith('/') ? (
-                                                            <Link className="sm-submenu-link" href={subItem.link} aria-label={subItem.ariaLabel}>
+                                                            <Link className="sm-submenu-link font-almost-textual" href={subItem.link} aria-label={subItem.ariaLabel}>
                                                                 {subItem.label}
                                                             </Link>
                                                         ) : (
-                                                            <a className="sm-submenu-link" href={subItem.link} aria-label={subItem.ariaLabel}>
+                                                            <a className="sm-submenu-link font-almost-textual" href={subItem.link} aria-label={subItem.ariaLabel}>
                                                                 {subItem.label}
                                                             </a>
                                                         )}
@@ -502,11 +502,11 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
                                     ) : (
                                         it.link?.startsWith('/') ? (
                                             <Link className="sm-panel-item" href={it.link} aria-label={it.ariaLabel} data-index={idx + 1}>
-                                                <span className="sm-panel-itemLabel">{it.label}</span>
+                                                <span className="sm-panel-itemLabel font-almost-textual">{it.label}</span>
                                             </Link>
                                         ) : (
                                             <a className="sm-panel-item" href={it.link} aria-label={it.ariaLabel} data-index={idx + 1}>
-                                                <span className="sm-panel-itemLabel">{it.label}</span>
+                                                <span className="sm-panel-itemLabel font-almost-textual">{it.label}</span>
                                             </a>
                                         )
                                     )}
@@ -522,7 +522,7 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
                     </ul>
                     {displaySocials && (
                         <div className="sm-socials" aria-label="Social links">
-                            <h3 className="sm-socials-title">Socials</h3>
+                            <h3 className="sm-socials-title font-almost-textual">Socials</h3>
                             <div style={{ height: '60px', marginTop: '1rem' }}>
                                 <LogoLoop
                                     logos={[
@@ -535,7 +535,6 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
                                     direction="left"
                                     logoHeight={32}
                                     gap={24}
-                                    pauseOnHover={false}
                                     scaleOnHover
                                     fadeOut
                                     fadeOutColor="#ffffff"

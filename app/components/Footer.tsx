@@ -41,9 +41,16 @@ export const Footer: React.FC<FooterProps> = ({
   ]
 }) => {
   const { t } = useLanguage();
-  
+
   return (
-    <footer className="bg-black text-white" style={{ position: "relative", zIndex: 1 }}>
+    <footer
+      className="text-white"
+      style={{
+        position: "relative",
+        zIndex: 1,
+        background: "linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 100%)",
+      }}
+    >
       <div className="max-w-7xl mx-auto px-4 py-12">
         <div className="flex flex-col md:flex-row justify-between items-start gap-8 md:gap-12">
           {/* Logo - Links (hidden on mobile) */}
@@ -63,8 +70,8 @@ export const Footer: React.FC<FooterProps> = ({
           <div className="w-full md:hidden flex flex-col gap-6">
             {/* Contact */}
             <div>
-              <h3 className="text-base font-bold mb-2">{t("footer.contact")}</h3>
-              <ul className="space-y-1.5 text-xs">
+              <h3 className="text-base mb-2 font-almost-textual">{t("footer.contact")}</h3>
+              <ul className="space-y-1.5 text-xs font-verdana-bold">
                 <li>
                   <a href={`mailto:${email}`} className="hover:text-gray-300 transition-colors">
                     {email}
@@ -83,8 +90,8 @@ export const Footer: React.FC<FooterProps> = ({
 
             {/* About */}
             <div>
-              <h3 className="text-base font-bold mb-2">{t("footer.about")}</h3>
-              <ul className="space-y-1.5 text-xs">
+              <h3 className="text-base mb-2 font-almost-textual">{t("footer.about")}</h3>
+              <ul className="space-y-1.5 text-xs font-verdana-bold">
                 {aboutItems.map((item, index) => (
                   <li key={index}>
                     <Link href={item.link} className="hover:text-gray-300 transition-colors">
@@ -101,8 +108,8 @@ export const Footer: React.FC<FooterProps> = ({
           <div className="hidden md:flex flex-1 gap-8 md:gap-12">
             {/* Contact - Midden links */}
             <div className="flex-1">
-              <h3 className="text-xl font-bold mb-4">{t("footer.contact")}</h3>
-              <ul className="space-y-2">
+              <h3 className="text-xl mb-4 font-almost-textual">{t("footer.contact")}</h3>
+              <ul className="space-y-2 font-verdana-bold text-sm">
                 <li>
                   <a href={`mailto:${email}`} className="hover:text-gray-300 transition-colors">
                     {email}
@@ -121,8 +128,8 @@ export const Footer: React.FC<FooterProps> = ({
 
             {/* About - Midden rechts */}
             <div className="flex-1">
-              <h3 className="text-xl font-bold mb-4">{t("footer.about")}</h3>
-              <ul className="space-y-2">
+              <h3 className="text-xl mb-4 font-almost-textual">{t("footer.about")}</h3>
+              <ul className="space-y-2 font-verdana-bold text-sm">
                 {aboutItems.map((item, index) => (
                   <li key={index}>
                     <Link href={item.link} className="hover:text-gray-300 transition-colors">
