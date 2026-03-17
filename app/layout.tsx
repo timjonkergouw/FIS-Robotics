@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Inter } from "next/font/google";
 import "./globals.css";
 import { LanguageProviderWrapper } from "./components/LanguageProviderWrapper";
 
@@ -11,6 +11,12 @@ const geistSans = Geist({
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
+});
+
+const interHeavy = Inter({
+  variable: "--font-almost-textual",
+  subsets: ["latin"],
+  weight: "900",
 });
 
 export const metadata: Metadata = {
@@ -35,6 +41,10 @@ export const metadata: Metadata = {
         rel: "android-chrome-512x512",
         url: "/images/android-chrome-512x512.png",
       },
+      {
+        rel: "android-chrome-512x512",
+        url: "/images/android-chrome-512x512.png",
+      },
     ],
   },
 };
@@ -47,7 +57,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${interHeavy.variable} antialiased`}
       >
         <LanguageProviderWrapper>
           {children}

@@ -1,5 +1,5 @@
 "use client";
-import React, { useMemo, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { SiteMenu } from "./components/SiteMenu";
@@ -47,6 +47,21 @@ export default function Home() {
     []
   );
   const [zitschalenIndex, setZitschalenIndex] = useState(0);
+
+  useEffect(() => {
+    const zitschalenTimer = setInterval(() => {
+      setZitschalenIndex((prev) => (prev + 1) % zitschalenImages.length);
+    }, 5000);
+
+    const creativeTimer = setInterval(() => {
+      setCreativeIndex((prev) => (prev + 1) % creativeImages.length);
+    }, 5000);
+
+    return () => {
+      clearInterval(zitschalenTimer);
+      clearInterval(creativeTimer);
+    };
+  }, [zitschalenImages.length, creativeImages.length]);
 
   return (
     <main style={{ minHeight: "100dvh", position: "relative" }}>
@@ -133,13 +148,39 @@ export default function Home() {
           {/* Zitschalen card */}
           <div className="flex-1 bg-[#181818] border border-white/15 rounded-xl overflow-hidden shadow-md">
             <div className="relative h-52 sm:h-60 bg-[#d9d9d9] overflow-hidden">
-              <Image
-                src={zitschalenImages[zitschalenIndex]}
-                alt={`Zitschalen ${zitschalenIndex + 1}`}
-                fill
-                className="object-cover"
-                sizes="(max-width: 768px) 100vw, 50vw"
-              />
+              <div key={zitschalenIndex} className="relative w-full h-full animate-fade-in-up-soft">
+                <Image
+                  src={zitschalenImages[zitschalenIndex]}
+                  alt={`Zitschalen ${zitschalenIndex + 1}`}
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                />
+              </div>
+              <button
+                type="button"
+                onClick={(event) => {
+                  event.preventDefault();
+                  event.stopPropagation();
+                  setZitschalenIndex((prev) => (prev - 1 + zitschalenImages.length) % zitschalenImages.length);
+                }}
+                className="absolute left-2 top-1/2 -translate-y-1/2 flex h-8 w-8 items-center justify-center rounded-full bg-black/50 text-white hover:bg-black/70 transition-colors"
+                aria-label="Vorige zitschalen afbeelding"
+              >
+                ‹
+              </button>
+              <button
+                type="button"
+                onClick={(event) => {
+                  event.preventDefault();
+                  event.stopPropagation();
+                  setZitschalenIndex((prev) => (prev + 1) % zitschalenImages.length);
+                }}
+                className="absolute right-2 top-1/2 -translate-y-1/2 flex h-8 w-8 items-center justify-center rounded-full bg-black/50 text-white hover:bg-black/70 transition-colors"
+                aria-label="Volgende zitschalen afbeelding"
+              >
+                ›
+              </button>
               <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-2">
                 {zitschalenImages.map((_, idx) => (
                   <button
@@ -181,13 +222,39 @@ export default function Home() {
           {/* Creative Industry card */}
           <div className="flex-1 bg-[#181818] border border-white/15 rounded-xl overflow-hidden shadow-md">
             <div className="relative h-52 sm:h-60 bg-[#d9d9d9] overflow-hidden">
-              <Image
-                src={creativeImages[creativeIndex]}
-                alt={`Creative industry ${creativeIndex + 1}`}
-                fill
-                className="object-cover"
-                sizes="(max-width: 768px) 100vw, 50vw"
-              />
+              <div key={creativeIndex} className="relative w-full h-full animate-fade-in-up-soft">
+                <Image
+                  src={creativeImages[creativeIndex]}
+                  alt={`Creative industry ${creativeIndex + 1}`}
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                />
+              </div>
+              <button
+                type="button"
+                onClick={(event) => {
+                  event.preventDefault();
+                  event.stopPropagation();
+                  setCreativeIndex((prev) => (prev - 1 + creativeImages.length) % creativeImages.length);
+                }}
+                className="absolute left-2 top-1/2 -translate-y-1/2 flex h-8 w-8 items-center justify-center rounded-full bg-black/50 text-white hover:bg-black/70 transition-colors"
+                aria-label="Vorige creative industry afbeelding"
+              >
+                ‹
+              </button>
+              <button
+                type="button"
+                onClick={(event) => {
+                  event.preventDefault();
+                  event.stopPropagation();
+                  setCreativeIndex((prev) => (prev + 1) % creativeImages.length);
+                }}
+                className="absolute right-2 top-1/2 -translate-y-1/2 flex h-8 w-8 items-center justify-center rounded-full bg-black/50 text-white hover:bg-black/70 transition-colors"
+                aria-label="Volgende creative industry afbeelding"
+              >
+                ›
+              </button>
               <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-2">
                 {creativeImages.map((_, idx) => (
                   <button
