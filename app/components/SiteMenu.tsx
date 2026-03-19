@@ -17,24 +17,13 @@ interface SiteMenuProps {
 export const SiteMenu: React.FC<SiteMenuProps> = ({
   items = [
     { label: "Home", link: "/" },
-    {
-      label: "About us",
-      link: "#about",
-      submenu: [
-        { label: "Zitschalen/Zitortheses", link: "/zitschalen" },
-        { label: "Creatieve Industrie", link: "/creatief" },
-        { label: "SmartCAM", link: "/smartcam" },
-        { label: "Hardware", link: "/hardware" }
-      ]
-    },
-    { label: "Team", link: "/team" },
-    { label: "Contact", link: "#contact" }
+    { label: "Zitschalen/Zitortheses", link: "/zitschalen" },
+    { label: "Creatieve Industrie", link: "/creatief" },
+    { label: "Team", link: "/team" }
   ],
   socialItems = [
-    { label: "LinkedIn", link: "https://www.linkedin.com/" },
-    { label: "Facebook", link: "https://facebook.com/" },
-    { label: "X", link: "https://x.com/" },
-    { label: "Instagram", link: "https://instagram.com/" }
+    { label: "Facebook", link: "https://www.facebook.com/FISRobotics?locale=nl_NL" },
+    { label: "Instagram", link: "https://www.instagram.com/fisrobotics/" }
   ],
   logoUrl = "/images/fis_robotics_logo.jpg",
   showLogo = true,

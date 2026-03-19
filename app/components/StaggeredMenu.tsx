@@ -42,7 +42,7 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
     colors = ["#B19EEF", "#5227FF"],
     items = [],
     socialItems = [],
-    displaySocials = true,
+    displaySocials = false,
     displayItemNumbering = true,
     className,
     logoUrl = "/src/assets/logos/reactbits-gh-white.svg",
@@ -424,20 +424,21 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
                 })()}
             </div>
             <header className="staggered-menu-header" aria-label="Main navigation header">
-                {showLogo ? (
-                <div className="sm-logo" aria-label="Logo">
-                    <img
-                        src={logoUrl || "/src/assets/logos/reactbits-gh-white.svg"}
-                        alt="Logo"
-                        className="sm-logo-img"
-                        draggable={false}
-                        width={110}
-                        height={24}
-                    />
+                <div className="sm-logo" aria-label="Language Switcher">
+                    <LanguageSwitcher />
                 </div>
-                ) : (
-                    <div className="sm-logo" aria-label="Language Switcher">
-                        <LanguageSwitcher />
+                {showLogo && (
+                    <div className="sm-logo" aria-label="Logo">
+                        <Link href="/" aria-label="Ga naar home">
+                            <img
+                                src={logoUrl || "/src/assets/logos/reactbits-gh-white.svg"}
+                                alt="FIS Robotics logo"
+                                className="sm-logo-img transition-transform duration-300 hover:scale-110"
+                                draggable={false}
+                                width={110}
+                                height={24}
+                            />
+                        </Link>
                     </div>
                 )}
                 <button
@@ -526,10 +527,8 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
                             <div style={{ height: '60px', marginTop: '1rem' }}>
                                 <LogoLoop
                                     logos={[
-                                        { node: <FaLinkedin />, title: "LinkedIn", href: "https://linkedin.com" },
-                                        { node: <FaFacebook />, title: "Facebook", href: "https://facebook.com" },
-                                        { node: <FaTwitter />, title: "X", href: "https://x.com" },
-                                        { node: <FaInstagram />, title: "Instagram", href: "https://instagram.com" }
+                                        { node: <FaFacebook />, title: "Facebook", href: "https://www.facebook.com/FISRobotics?locale=nl_NL" },
+                                        { node: <FaInstagram />, title: "Instagram", href: "https://www.instagram.com/fisrobotics/" }
                                     ]}
                                     speed={80}
                                     direction="left"

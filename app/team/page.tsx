@@ -10,28 +10,17 @@ export default function TeamPage() {
   const menuItems = useMemo(
     () => [
       { label: t("menu.home"), link: "/" },
-      {
-        label: t("menu.about"),
-        link: "#about",
-        submenu: [
-          { label: t("menu.zitschalen"), link: "/zitschalen" },
-          { label: t("menu.creatief"), link: "/creatief" },
-          { label: t("menu.smartcam"), link: "/smartcam" },
-          { label: t("menu.hardware"), link: "/hardware" },
-        ],
-      },
+      { label: t("menu.zitschalen"), link: "/zitschalen" },
+      { label: t("menu.creatief"), link: "/creatief" },
       { label: t("menu.team"), link: "/team" },
-      { label: t("menu.contact"), link: "#contact" },
     ],
     [t]
   );
 
   const socialItems = useMemo(
     () => [
-      { label: "LinkedIn", link: "https://www.linkedin.com/" },
-      { label: "Facebook", link: "https://facebook.com/" },
-      { label: "X", link: "https://x.com/" },
-      { label: "Instagram", link: "https://instagram.com/" },
+      { label: "Facebook", link: "https://www.facebook.com/FISRobotics?locale=nl_NL" },
+      { label: "Instagram", link: "https://www.instagram.com/fisrobotics/" },
     ],
     []
   );
@@ -50,7 +39,17 @@ export default function TeamPage() {
   );
 
   return (
-    <main style={{ minHeight: "100dvh", position: "relative" }}>
+    <main
+      style={{
+        minHeight: "100dvh",
+        position: "relative",
+        backgroundColor: "#1A1A1A",
+        backgroundImage: 'url("/images/achtergrond fis.png")',
+        backgroundRepeat: "no-repeat",
+        backgroundPosition: "center center",
+        backgroundSize: "cover",
+      }}
+    >
       <SiteMenu items={menuItems} socialItems={socialItems} showLogo={false} />
 
       {/* Team Section */}

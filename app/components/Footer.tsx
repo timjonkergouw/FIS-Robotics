@@ -3,8 +3,7 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useLanguage } from "../contexts/LanguageContext";
-import { FaLinkedin, FaFacebook, FaInstagram } from "react-icons/fa";
-import { FaXTwitter } from "react-icons/fa6";
+import { FaFacebook, FaInstagram } from "react-icons/fa";
 
 interface FooterProps {
   logoUrl?: string;
@@ -16,9 +15,7 @@ interface FooterProps {
 }
 
 const socialIcons: Record<string, React.ReactNode> = {
-  LinkedIn: <FaLinkedin size={24} />,
   Facebook: <FaFacebook size={24} />,
-  X: <FaXTwitter size={24} />,
   Instagram: <FaInstagram size={24} />,
 };
 
@@ -26,18 +23,14 @@ export const Footer: React.FC<FooterProps> = ({
   logoUrl = "/images/fis-plakaat.png",
   email = "info@fisrobotics.be",
   phone = "+31 6 123456789",
-  address = "Goudstraat 13, Genk 1234AB",
+  address = "Bosdel 54, 3600 Genk, België",
   aboutItems = [
     { label: "Zitschalen / Zitortheses", link: "/zitschalen" },
-    { label: "Creatieve Industrie", link: "/creatief" },
-    { label: "SmartCAM", link: "/smartcam" },
-    { label: "Hardware", link: "/hardware" }
+    { label: "Creatieve Industrie", link: "/creatief" }
   ],
   socialItems = [
-    { label: "LinkedIn", link: "https://www.linkedin.com/" },
-    { label: "Facebook", link: "https://facebook.com/" },
-    { label: "X", link: "https://x.com/" },
-    { label: "Instagram", link: "https://instagram.com/" }
+    { label: "Facebook", link: "https://www.facebook.com/FISRobotics?locale=nl_NL" },
+    { label: "Instagram", link: "https://www.instagram.com/fisrobotics/" }
   ]
 }) => {
   const { t } = useLanguage();
@@ -77,11 +70,6 @@ export const Footer: React.FC<FooterProps> = ({
                     {email}
                   </a>
                 </li>
-                <li>
-                  <a href={`tel:${phone.replace(/\s/g, '')}`} className="hover:text-gray-300 transition-colors">
-                    {phone}
-                  </a>
-                </li>
                 <li className="hover:text-gray-300 transition-colors">
                   {address}
                 </li>
@@ -113,11 +101,6 @@ export const Footer: React.FC<FooterProps> = ({
                 <li>
                   <a href={`mailto:${email}`} className="hover:text-gray-300 transition-colors">
                     {email}
-                  </a>
-                </li>
-                <li>
-                  <a href={`tel:${phone.replace(/\s/g, '')}`} className="hover:text-gray-300 transition-colors">
-                    {phone}
                   </a>
                 </li>
                 <li className="hover:text-gray-300 transition-colors">

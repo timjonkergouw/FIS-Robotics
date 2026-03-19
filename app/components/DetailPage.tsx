@@ -27,7 +27,17 @@ export const DetailPage: React.FC<DetailPageProps> = ({
   const { t } = useLanguage();
 
   return (
-    <main style={{ minHeight: "100dvh", position: "relative" }}>
+    <main
+      style={{
+        minHeight: "100dvh",
+        position: "relative",
+        backgroundColor: "#1A1A1A",
+        backgroundImage: 'url("/images/achtergrond fis.png")',
+        backgroundRepeat: "no-repeat",
+        backgroundPosition: "center center",
+        backgroundSize: "cover",
+      }}
+    >
       <SiteMenu items={menuItems} socialItems={socialItems} showLogo={false} />
 
       {/* Hero Section */}
