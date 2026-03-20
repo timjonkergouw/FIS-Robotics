@@ -56,7 +56,7 @@ export const DetailPage: React.FC<DetailPageProps> = ({
           }}
         >
           <div className="max-w-7xl mx-auto">
-            <h1 className="text-5xl md:text-7xl font-almost-textual text-white mb-8">
+            <h1 className="text-5xl md:text-7xl font-inter-bold text-white mb-8 uppercase">
               {title}
             </h1>
           </div>
@@ -129,9 +129,12 @@ export const DetailPage: React.FC<DetailPageProps> = ({
                   >
                     <div className="bg-black/60 backdrop-blur-sm rounded-lg p-6 md:p-8 border border-white/20">
                       {section.heading ? (
-                        <h2 className="text-[#414CA5] text-2xl md:text-3xl font-almost-textual mb-4">
-                          {section.heading}
-                        </h2>
+                        <div className="inline-flex flex-col items-start">
+                          <h2 className="text-white font-inter-bold text-2xl sm:text-3xl leading-tight uppercase inline-block">
+                            {section.heading}
+                          </h2>
+                          <div className="h-2 bg-[#0808C8] rounded-none mt-1 w-full" />
+                        </div>
                       ) : null}
                       <p className="text-white text-lg leading-relaxed font-verdana-bold whitespace-pre-line">
                         {section.text}

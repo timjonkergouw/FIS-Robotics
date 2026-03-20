@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { SiteMenu } from "./components/SiteMenu";
@@ -102,7 +102,7 @@ export default function Home() {
                     const rest = w.slice(1);
                     return (
                       <span key={idx}>
-                        <span className="text-[#414CA5]">{first}</span>
+                        <span className="text-[#0808C8]">{first}</span>
                         {rest}
                         {idx < words.length - 1 ? " " : null}
                       </span>
@@ -111,7 +111,7 @@ export default function Home() {
                 })()}
               </h1>
               {/* Only under the slogan text (not expanded by the quote/subtext width) */}
-              <div className="h-2 bg-[#414CA5] rounded-none mt-1 w-full" />
+              <div className="h-2 bg-[#0808C8] rounded-none mt-1 w-full" />
             </div>
             <p className="font-verdana-bold text-[11px] sm:text-xs text-gray-200 leading-relaxed mt-3 max-w-md px-4">
               {t("home.hero.subtext")}
@@ -121,7 +121,7 @@ export default function Home() {
 
         {/* Video full width (altijd zichtbaar in z'n eigen aspect container) */}
         <div className="w-full max-w-4xl mx-auto mt-6 px-4 md:px-0">
-          <div className="w-full aspect-video rounded-3xl border-[6px] border-[#414CA5] bg-[#d9d9d9] shadow-[0_0_25px_rgba(65,76,165,0.45)] overflow-hidden flex items-center justify-center">
+          <div className="w-full aspect-video rounded-3xl border-[6px] border-[#0808C8] bg-[#d9d9d9] shadow-[0_0_25px_rgba(8,8,200,0.45)] overflow-hidden flex items-center justify-center">
             <video
               src="/images/fisideo.mp4"
               className="w-full h-full object-contain"
@@ -224,14 +224,14 @@ export default function Home() {
                 <h3 className="font-almost-textual text-base sm:text-lg">
                   {t("home.cards.zitschalenTitle")}
                 </h3>
-                <div className="h-2 w-full bg-[#414CA5] rounded-none mt-1" />
+                <div className="h-2 w-full bg-[#0808C8] rounded-none mt-1" />
               </div>
               <p className="font-verdana-bold text-[11px] sm:text-xs text-gray-200 leading-relaxed">
                 {t("home.cards.zitschalenBody")}
               </p>
               <Link
                 href="/zitschalen"
-                className="mt-3 inline-flex items-center justify-center w-full px-5 py-3 bg-[#414CA5] text-[11px] sm:text-xs font-verdana-bold text-white hover:bg-[#313A80] transition-colors rounded-md"
+                className="mt-3 inline-flex items-center justify-center w-full px-5 py-3 bg-[#0808C8] text-[11px] sm:text-xs font-verdana-bold text-white hover:bg-[#0808C8] transition-colors rounded-md"
               >
                 {t("home.cards.moreDetails")}
               </Link>
@@ -324,14 +324,14 @@ export default function Home() {
                 <h3 className="font-almost-textual text-base sm:text-lg">
                   {t("home.cards.creatiefTitle")}
                 </h3>
-                <div className="h-2 w-full bg-[#414CA5] rounded-none mt-1" />
+                <div className="h-2 w-full bg-[#0808C8] rounded-none mt-1" />
               </div>
               <p className="font-verdana-bold text-[11px] sm:text-xs text-gray-200 leading-relaxed">
                 {t("home.cards.creatiefBody")}
               </p>
               <Link
                 href="/creatief"
-                className="mt-3 inline-flex items-center justify-center w-full px-5 py-3 bg-[#414CA5] text-[11px] sm:text-xs font-verdana-bold text-white hover:bg-[#313A80] transition-colors rounded-md"
+                className="mt-3 inline-flex items-center justify-center w-full px-5 py-3 bg-[#0808C8] text-[11px] sm:text-xs font-verdana-bold text-white hover:bg-[#0808C8] transition-colors rounded-md"
               >
                 {t("home.cards.moreDetails")}
               </Link>

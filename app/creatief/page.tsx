@@ -1,5 +1,5 @@
 "use client";
-import React, { useMemo } from "react";
+import { useMemo } from "react";
 import { DetailPage } from "../components/DetailPage";
 import { useLanguage } from "../contexts/LanguageContext";
 
@@ -29,7 +29,7 @@ export default function CreatiefPage() {
       {
         images: [
           "/images/creatieve industrie kop 1.jpg",
-          "/images/creatieve industrie kop 2.jpg",
+          "/images/creatieve industrie kop 5.jpg",
           "/images/creatieve industrie kop 3.jpg",
           "/images/creatieve industrie kop 4.jpg",
         ],

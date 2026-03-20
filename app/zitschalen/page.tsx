@@ -1,5 +1,5 @@
 "use client";
-import React, { useMemo } from "react";
+import { useMemo } from "react";
 import { DetailPage } from "../components/DetailPage";
 import { useLanguage } from "../contexts/LanguageContext";
 

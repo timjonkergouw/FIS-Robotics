@@ -1,5 +1,5 @@
 "use client";
-import React, { useMemo } from "react";
+import { useMemo } from "react";
 import { SiteMenu } from "../components/SiteMenu";
 import { Footer } from "../components/Footer";
 import { useLanguage } from "../contexts/LanguageContext";

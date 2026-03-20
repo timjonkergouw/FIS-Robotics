@@ -3,7 +3,7 @@ import React, { useCallback, useLayoutEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import Link from "next/link";
 import LogoLoop from "./LogoLoop";
-import { FaInstagram, FaFacebook, FaTwitter, FaLinkedin } from "react-icons/fa";
+import { FaInstagram, FaFacebook } from "react-icons/fa";
 import { LanguageSwitcher } from "./LanguageSwitcher";
 
 export type StaggeredMenuItem = {
@@ -39,9 +39,8 @@ export type StaggeredMenuProps = {
 
 export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
     position = "right",
-    colors = ["#B19EEF", "#5227FF"],
+    colors = ["#0808C8", "#0808C8"],
     items = [],
-    socialItems = [],
     displaySocials = false,
     displayItemNumbering = true,
     className,
@@ -49,7 +48,7 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
     showLogo = true,
     menuButtonColor = "#fff",
     openMenuButtonColor = "#fff",
-    accentColor = "#5227FF",
+    accentColor = "#0808C8",
     changeMenuColorOnOpen = true,
     isFixed = false,
     onMenuOpen,

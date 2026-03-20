@@ -22,7 +22,6 @@ const socialIcons: Record<string, React.ReactNode> = {
 export const Footer: React.FC<FooterProps> = ({
   logoUrl = "/images/fis-plakaat.png",
   email = "info@fisrobotics.be",
-  phone = "+31 6 123456789",
   address = "Bosdel 54, 3600 Genk, België",
   aboutItems = [
     { label: "Zitschalen / Zitortheses", link: "/zitschalen" },
