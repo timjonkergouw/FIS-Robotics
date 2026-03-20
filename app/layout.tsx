@@ -22,6 +22,11 @@ const interHeavy = Inter({
 export const metadata: Metadata = {
   title: "FIS Robotics",
   description: "FIS Robotics",
+  themeColor: "#1A1A1A",
+  viewport: {
+    width: "device-width",
+    initialScale: 1,
+  },
   manifest: "/manifest.json",
   icons: {
     icon: [
