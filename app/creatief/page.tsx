@@ -27,17 +27,35 @@ export default function CreatiefPage() {
   const sections = useMemo(
     () => [
       {
-        image: "/images/creatief.jpg",
+        images: [
+          "/images/creatieve industrie kop 1.jpg",
+          "/images/creatieve industrie kop 2.jpg",
+          "/images/creatieve industrie kop 3.jpg",
+          "/images/creatieve industrie kop 4.jpg",
+        ],
+        heading: t("creatief.headingIntro"),
         text: t("creatief.section1"),
         imagePosition: "left" as const,
       },
       {
-        image: "/images/creatief2.jpg",
+        images: [
+          "/images/frezen kop 1.jpg",
+          "/images/frezen kop 2.jpg",
+          "/images/frezen kop 3.jpg",
+          "/images/frezen kop 4.jpg",
+        ],
+        heading: t("creatief.headingFrezen"),
         text: t("creatief.section2"),
         imagePosition: "right" as const,
       },
       {
-        image: "/images/creatief3.jpg",
+        images: [
+          "/images/3d print kop 1.jpg",
+          "/images/3d print  kop 2.jpg",
+          "/images/3d print kop 3.jpg",
+          "/images/3d print kop 4.jpg",
+        ],
+        heading: t("creatief.heading3dPrint"),
         text: t("creatief.section3"),
         imagePosition: "left" as const,
       },
@@ -51,6 +69,7 @@ export default function CreatiefPage() {
       sections={sections}
       menuItems={menuItems}
       socialItems={socialItems}
+      hideHero
     />
   );
 }

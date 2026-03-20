@@ -72,12 +72,15 @@ const translations = {
 
     // Creatief detail page
     "creatief.title": "Creatieve Industrie",
+    "creatief.headingIntro": "Creatieve industrie",
+    "creatief.headingFrezen": "Frezen",
+    "creatief.heading3dPrint": "3D-printen",
     "creatief.section1":
-      "We combineren technologie met creativiteit om unieke oplossingen te ontwikkelen voor de creatieve sector. Van interactieve kunstinstallaties tot innovatieve tentoonstellingsontwerpen, we helpen kunstenaars en creatieven hun visie tot leven te brengen met geavanceerde technologie.",
+      "Bij FIS Robotics combineren we techniek met design om ideeën om te zetten in fysieke objecten.\n\nWe werken voor kunstenaars, designers, evenementen en decorbouw.\nVan concept tot maatwerk—gemaakt precies zoals jij het nodig hebt.",
     "creatief.section2":
-      "Onze expertise in robotica en software-ontwikkeling stelt ons in staat om complexe creatieve projecten te realiseren. We werken samen met musea, galeries en kunstenaars om interactieve ervaringen te creëren die bezoekers betrekken en inspireren. Onze oplossingen zijn zowel technisch geavanceerd als artistiek verantwoord.",
+      "Frezen in EPS en hout\n\nToepassingen: decor, prototypes, kunstobjecten.\nVan 3D-model naar eindproduct: we vertalen jouw ontwerp naar een nauwkeurig freestraject en werken af tot het klaar is voor gebruik.",
     "creatief.section3":
-      "Innovatie en creativiteit gaan hand in hand in onze projecten. We geloven dat technologie een krachtig medium kan zijn voor artistieke expressie. Ons team combineert technische expertise met een diep begrip van de creatieve industrie om oplossingen te ontwikkelen die zowel functioneel als esthetisch zijn.",
+      "3D-printen in PET en PP\n\nMaterialen: PET en PP zijn licht, sterk en vormvast.\nWaarvoor: prototypes, onderdelen voor installaties en functionele kunstobjecten.\nKorte uitleg proces: we modelleren het ontwerp, printen in lagen en verfijnen waar nodig voor een perfecte pasvorm.",
 
     // (SmartCAM en Hardware teksten verwijderd; deze secties staan niet meer op de site)
   },
@@ -141,12 +144,15 @@ const translations = {
 
     // Creatief detail page
     "creatief.title": "Creative Industry",
+    "creatief.headingIntro": "Creative industry",
+    "creatief.headingFrezen": "Milling",
+    "creatief.heading3dPrint": "3D printing",
     "creatief.section1":
-      "We combine technology with creativity to develop unique solutions for the creative sector. From interactive art installations to innovative exhibition designs, we help artists and creatives bring their vision to life using advanced technology.",
+      "At FIS Robotics, we combine technology with design to turn ideas into physical objects.\n\nWe work with artists, designers, events and set builders.\nFrom concept to tailor-made results—built exactly to your needs.",
     "creatief.section2":
-      "Our expertise in robotics and software development enables us to realise complex creative projects. We collaborate with museums, galleries and artists to create interactive experiences that engage and inspire visitors. Our solutions are both technically advanced and artistically responsible.",
+      "Milling in EPS and wood\n\nApplications: sets, prototypes, art objects.\nFrom 3D model to finished product: we translate your design into a precise milling path and finish it until it’s ready to use.",
     "creatief.section3":
-      "Innovation and creativity go hand in hand in our projects. We believe that technology can be a powerful medium for artistic expression. Our team combines technical expertise with a deep understanding of the creative industry to develop solutions that are both functional and aesthetically pleasing.",
+      "3D printing in PET and PP\n\nMaterials: PET and PP are lightweight, strong and dimensionally stable.\nWhere it's used: prototypes, parts for installations, and functional art objects.\nShort process (explained): we model the design, print layer by layer, and refine when needed for a perfect fit.",
 
     // (SmartCAM and Hardware texts removed; these sections no longer exist on the site)
   },
