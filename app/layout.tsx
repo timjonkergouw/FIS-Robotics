@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono, Inter } from "next/font/google";
 import "./globals.css";
 import { LanguageProviderWrapper } from "./components/LanguageProviderWrapper";
@@ -23,10 +23,6 @@ export const metadata: Metadata = {
   title: "FIS Robotics",
   description: "FIS Robotics",
   themeColor: "#1A1A1A",
-  viewport: {
-    width: "device-width",
-    initialScale: 1,
-  },
   manifest: "/manifest.json",
   icons: {
     icon: [
@@ -54,6 +50,12 @@ export const metadata: Metadata = {
   },
 };
 
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  viewportFit: "cover",
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -61,6 +63,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        {/* iOS Safari: status bar (top notch area) translucency styling. */}
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta
+          name="apple-mobile-web-app-status-bar-style"
+          content="black-translucent"
+        />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${interHeavy.variable} antialiased`}
       >

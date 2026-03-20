@@ -69,50 +69,68 @@ export default function Home() {
         showLogo={false}
       />
 
+      {/* Header logo (bovenaan, midden) */}
+      <header
+        className="absolute left-1/2 top-0 -translate-x-1/2 z-[45] pointer-events-none"
+        style={{ paddingTop: "calc(env(safe-area-inset-top, 0px) + 10px)" }}
+      >
+        <div className="relative w-40 h-24 sm:w-52 sm:h-28 md:w-64 md:h-32">
+          <div className="absolute inset-0 -z-10 rounded-full bg-white/70 blur-3xl scale-110" />
+          <Image
+            src="/images/fis-plakaat.png"
+            alt="FIS Robotics"
+            fill
+            className="object-contain drop-shadow-[0_0_90px_rgba(255,255,255,1)]"
+            priority
+            sizes="(max-width: 640px) 160px, (max-width: 768px) 208px, 256px"
+          />
+        </div>
+      </header>
+
       {/* Hero section */}
-      <section className="pt-28 pb-10 px-4 text-white">
-        <div className="max-w-4xl mx-auto flex flex-col items-center text-center gap-6">
-          {/* FIS logo (plakaat) */}
-          <div className="relative mb-4 group">
-            <div className="relative mx-auto w-52 h-32 sm:w-64 sm:h-40 md:w-80 md:h-48 transition-transform duration-300 scale-110 group-hover:scale-125">
-              <div className="absolute inset-0 -z-10 rounded-full bg-white/70 blur-3xl scale-110 group-hover:bg-white/90 group-hover:scale-125 transition-all duration-300" />
-              <Image
-                src="/images/fis-plakaat.png"
-                alt="FIS Robotics"
-                fill
-                className="object-contain drop-shadow-[0_0_120px_rgba(255,255,255,1)] drop-shadow-[0_0_60px_rgba(255,255,255,1)] group-hover:drop-shadow-[0_0_170px_rgba(255,255,255,1)]"
-                priority
-                sizes="(max-width: 640px) 208px, (max-width: 768px) 256px, 320px"
-              />
-            </div>
-          </div>
-
-          {/* Hero video box */}
-          <div className="w-full max-w-4xl mx-auto mb-6">
-            <div className="rounded-3xl border-[6px] border-[#414CA5] bg-[#d9d9d9] h-48 sm:h-56 md:h-64 lg:h-72 xl:h-80 shadow-[0_0_25px_rgba(65,76,165,0.45)] overflow-hidden flex items-center justify-center">
-              <video
-                src="/images/fisideo.mp4"
-                className="w-full h-full object-cover"
-                autoPlay
-                loop
-                muted
-                playsInline
-                preload="metadata"
-              />
-            </div>
-          </div>
-
-          {/* Slogan + underline + subtext */}
-          <div className="flex flex-col items-center gap-3">
+      <section className="pb-10 text-white" style={{ paddingTop: "calc(env(safe-area-inset-top, 0px) + 120px)" }}>
+        <div className="max-w-4xl mx-auto flex flex-col items-center text-center gap-4 px-4">
+          {/* FIRST IN SERVICE + quote daaronder */}
+          <div className="flex flex-col items-center">
             <div className="inline-flex flex-col items-center">
-              <h1 className="font-almost-textual text-2xl sm:text-3xl">
-                {t("home.hero.slogan")}
+              <h1 className="font-almost-textual text-2xl sm:text-3xl inline-block">
+                {(() => {
+                  const cleaned = t("home.hero.slogan").replaceAll('"', "").replace(/\.$/, "");
+                  const words = cleaned.split(/\s+/).filter(Boolean);
+                  return words.map((w, idx) => {
+                    const first = w[0] ?? "";
+                    const rest = w.slice(1);
+                    return (
+                      <span key={idx}>
+                        <span className="text-[#414CA5]">{first}</span>
+                        {rest}
+                        {idx < words.length - 1 ? " " : null}
+                      </span>
+                    );
+                  });
+                })()}
               </h1>
-              <div className="h-2 w-full bg-[#414CA5] rounded-none mt-1" />
+              {/* Only under the slogan text (not expanded by the quote/subtext width) */}
+              <div className="h-2 bg-[#414CA5] rounded-none mt-1 w-full" />
             </div>
-            <p className="font-verdana-bold text-[11px] sm:text-xs text-gray-200 max-w-md leading-relaxed">
+            <p className="font-verdana-bold text-[11px] sm:text-xs text-gray-200 leading-relaxed mt-3 max-w-md px-4">
               {t("home.hero.subtext")}
             </p>
+          </div>
+        </div>
+
+        {/* Video full width (altijd zichtbaar in z'n eigen aspect container) */}
+        <div className="w-full max-w-4xl mx-auto mt-6 px-4 md:px-0">
+          <div className="w-full aspect-video rounded-3xl border-[6px] border-[#414CA5] bg-[#d9d9d9] shadow-[0_0_25px_rgba(65,76,165,0.45)] overflow-hidden flex items-center justify-center">
+            <video
+              src="/images/fisideo.mp4"
+              className="w-full h-full object-contain"
+              autoPlay
+              loop
+              muted
+              playsInline
+              preload="metadata"
+            />
           </div>
         </div>
       </section>
@@ -201,7 +219,7 @@ export default function Home() {
                 ))}
               </div>
             </div>
-            <div className="p-4 sm:p-5 pt-4 pb-0 text-white flex flex-col gap-3">
+            <div className="p-4 sm:p-5 pt-4 pb-0 max-[639px]:pb-4 text-white flex flex-col gap-3">
               <div className="inline-flex flex-col items-start mb-3 w-fit">
                 <h3 className="font-almost-textual text-base sm:text-lg">
                   {t("home.cards.zitschalenTitle")}
@@ -301,7 +319,7 @@ export default function Home() {
                 ))}
               </div>
             </div>
-            <div className="p-4 sm:p-5 pt-4 pb-0 text-white flex flex-col gap-3">
+            <div className="p-4 sm:p-5 pt-4 pb-0 max-[639px]:pb-4 text-white flex flex-col gap-3">
               <div className="inline-flex flex-col items-start mb-3 w-fit">
                 <h3 className="font-almost-textual text-base sm:text-lg">
                   {t("home.cards.creatiefTitle")}

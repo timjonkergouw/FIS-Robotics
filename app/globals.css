@@ -228,6 +228,20 @@ body {
   z-index: 10;
 }
 
+/* iOS safe-area: keep the top "notch/camera area" dark without changing panel background.
+   The pseudo-element only paints the inset strip and never blocks clicks. */
+.staggered-menu-wrapper::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: calc(env(safe-area-inset-top, 0px) + 6px);
+  background: #1A1A1A;
+  z-index: 9999;
+  pointer-events: none;
+}
+
 [data-position='left'] .staggered-menu-panel {
   right: auto;
   left: 0;
