@@ -94,7 +94,7 @@ export const DetailPage: React.FC<DetailPageProps> = ({
                           ? "border-0"
                           : "border-2 border-dashed border-white/30"
                       }`}
-                      style={{ backgroundColor: "transparent" }}
+                      style={{ backgroundColor: "#000" }}
                     >
                       {section.images && section.images.length > 0 ? (
                         <ImageCarousel
@@ -106,7 +106,7 @@ export const DetailPage: React.FC<DetailPageProps> = ({
                           src={section.image}
                           alt={section.text.substring(0, 50)}
                           fill
-                          className="object-cover"
+                          className="object-contain object-center"
                           sizes="(max-width: 768px) 100vw, 50vw"
                           onError={(e) => {
                             const target = e.target as HTMLImageElement;

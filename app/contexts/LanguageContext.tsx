@@ -63,12 +63,15 @@ const translations = {
 
     // Zitschalen detail page
     "zitschalen.title": "Zitschalen / Zitortheses",
+    "zitschalen.heading1": "Zitschalen en zitortheses",
+    "zitschalen.heading2": "Het process",
+    "zitschalen.heading3": "De functie",
     "zitschalen.section1":
-      "Bij FIS Robotics ontwikkelen we op maat gemaakte zitschalen en zitortheses die perfect aansluiten op de unieke lichaamsvorm van elke gebruiker. Door gebruik te maken van geavanceerde 3D-scantechnologie kunnen we tot op de millimeter nauwkeurig werken, wat resulteert in optimaal comfort en ondersteuning voor dagelijks gebruik.",
+      "Zitschalen, ook wel zitortheses genoemd, zijn orthopedische hulpmiddelen die ontworpen zijn om een correcte en stabiele zithouding te ondersteunen. Ze worden volledig op maat gemaakt, omdat iedere patiënt een unieke lichaamsvorm en specifieke ondersteuningsbehoefte heeft.\n\nHet doel van een zitschaal is om het lichaam optimaal te positioneren, zodat de gebruiker comfortabel kan zitten en lichamelijke klachten worden verminderd of voorkomen. Door gebruik te maken van moderne technieken zoals 3D-scans en digitale modellen kan een zitschaal zeer nauwkeurig worden afgestemd op de persoon.",
     "zitschalen.section2":
-      "Onze zitoplossingen worden vervaardigd uit hoogwaardige, medisch gecertificeerde materialen die zowel lichtgewicht als extreem duurzaam zijn. We werken nauw samen met ergotherapeuten, fysiotherapeuten en revalidatieartsen om ervoor te zorgen dat elk product voldoet aan de hoogste medische standaarden en de levenskwaliteit van gebruikers significant verbetert.",
+      "Het maken van een zitschaal begint met het aanmeten van de patiënt. Hierbij wordt een afdruk gemaakt van de zithouding. Deze afdruk wordt vervolgens digitaal ingescand met een 3D-scanner, zodat er een nauwkeurig digitaal model ontstaat.\n\nVanuit deze scan wordt een 3D-model gemaakt waarin de nodige orthopedische aanpassingen worden verwerkt. In het traditionele proces werd daarna een mal gefreesd en een kunststof plaat gevormd, die later nog moest worden bijgewerkt en gemonteerd.\n\nIn het nieuwe proces wordt het digitale model rechtstreeks gebruikt om de zitschaal met een 3D-printer te produceren. Hierdoor zijn minder bewerkingen nodig en ontstaat er minder afval. Na het printen wordt de zitschaal gemonteerd met bijvoorbeeld polstering en een onderstel.",
     "zitschalen.section3":
-      "Innovatie staat centraal in alles wat we doen. Van het eerste consult tot de uiteindelijke levering begeleiden we u door het hele proces. Ons team van specialisten staat klaar om samen met u de perfecte zitoplossing te vinden die aansluit bij uw specifieke behoeften, mobiliteit en levensstijl.",
+      "De belangrijkste functie van een zitschaal is het ondersteunen van een goede zithouding en het verbeteren van het comfort van de gebruiker. Door de persoonlijke pasvorm wordt het lichaam goed ondersteund, wat helpt om drukpunten te verminderen en een betere lichaamshouding te behouden.\n\nDaarnaast zorgen moderne productiemethoden, zoals 3D-printen, ervoor dat zitschalen duurzamer geproduceerd kunnen worden. Het materiaal kan vaak gerecycled worden en er is minder afval tijdens de productie. Ook kan het productieproces efficiënter en sneller verlopen.",
 
     // Creatief detail page
     "creatief.title": "Creatieve Industrie",
@@ -135,12 +138,15 @@ const translations = {
 
     // Zitschalen detail page
     "zitschalen.title": "Seating Shells / Orthoses",
+    "zitschalen.heading1": "Seating shells and orthoses",
+    "zitschalen.heading2": "The process",
+    "zitschalen.heading3": "The function",
     "zitschalen.section1":
-      "At FIS Robotics, we develop custom-made seating shells and orthoses that perfectly match each user's unique body shape. Using advanced 3D scanning technology, we work with millimetre precision, resulting in optimal comfort and support for daily use.",
+      "Seating shells, also known as seating orthoses, are orthopedic assistive devices designed to support a correct and stable seated posture. They are made completely to measure, because every patient has a unique body shape and specific support needs.\n\nThe goal of a seating shell is to position the body optimally, so the user can sit comfortably and physical complaints can be reduced or prevented. By using modern techniques such as 3D scans and digital models, a seating shell can be matched very precisely to the individual.",
     "zitschalen.section2":
-      "Our seating solutions are made from high-quality, medically certified materials that are both lightweight and extremely durable. We work closely with occupational therapists, physiotherapists and rehabilitation physicians to ensure that each product meets the highest medical standards and significantly improves users' quality of life.",
+      "Making a seating shell starts with fitting the patient. First, an impression is taken of the seated posture. This impression is then digitally scanned with a 3D scanner to create an accurate digital model.\n\nFrom this scan, a 3D model is created in which the required orthopedic adjustments are incorporated. In the traditional process, a mould was then milled and a plastic sheet formed, which later still needed to be refined and mounted.\n\nIn the new process, the digital model is used directly to produce the seating shell with a 3D printer. This means fewer processing steps are needed and less waste is created. After printing, the seating shell is assembled with, for example, padding and a base frame.",
     "zitschalen.section3":
-      "Innovation is at the heart of everything we do. From the first consultation to final delivery, we guide you through the entire process. Our team of specialists is ready to help you find the perfect seating solution that fits your specific needs, mobility and lifestyle.",
+      "The main function of a seating shell is to support a good seated posture and improve the user's comfort. With the personalized fit, the body is supported properly, helping to reduce pressure points and maintain a better body posture.\n\nIn addition, modern production methods such as 3D printing make seating shells more sustainably produced. The material can often be recycled and there is less waste during production. The production process can also be more efficient and faster.",
 
     // Creatief detail page
     "creatief.title": "Creative Industry",

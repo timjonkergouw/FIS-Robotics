@@ -59,15 +59,14 @@ export const ImageCarousel: React.FC<ImageCarouselProps> = ({ images, altPrefix 
       {images.length > 0 ? (
         <div
           key={`${index}-${direction}`}
-          className={`relative w-full h-full ${
-            direction === "next" ? "animate-slide-next" : "animate-slide-prev"
-          }`}
+          className={`relative w-full h-full bg-black ${direction === "next" ? "animate-slide-next" : "animate-slide-prev"
+            }`}
         >
           <Image
             src={images[index]}
             alt={`${altPrefix} ${index + 1}`}
             fill
-            className="object-cover"
+            className="object-contain object-center"
             sizes="(max-width: 768px) 100vw, 50vw"
             draggable={false}
           />
@@ -81,10 +80,10 @@ export const ImageCarousel: React.FC<ImageCarouselProps> = ({ images, altPrefix 
           e.stopPropagation();
           goPrev();
         }}
-        className="absolute left-2 top-1/2 -translate-y-1/2 flex h-12 w-12 items-center justify-center text-white hover:text-gray-200 transition-colors"
+        className="absolute left-3 top-1/2 -translate-y-1/2 flex h-50 w-16 items-center justify-center text-white hover:text-gray-200 transition-colors"
         aria-label="Vorige"
       >
-        <span className="text-4xl leading-none drop-shadow-[0_0_6px_rgba(0,0,0,0.7)]">‹</span>
+        <span className="text-7xl leading-none drop-shadow-[0_0_10px_rgba(0,0,0,0.7)]">‹</span>
       </button>
 
       <button
@@ -94,10 +93,10 @@ export const ImageCarousel: React.FC<ImageCarouselProps> = ({ images, altPrefix 
           e.stopPropagation();
           goNext();
         }}
-        className="absolute right-2 top-1/2 -translate-y-1/2 flex h-12 w-12 items-center justify-center text-white hover:text-gray-200 transition-colors"
+        className="absolute right-3 top-1/2 -translate-y-1/2 flex h-24 w-16 items-center justify-center text-white hover:text-gray-200 transition-colors"
         aria-label="Volgende"
       >
-        <span className="text-4xl leading-none drop-shadow-[0_0_6px_rgba(0,0,0,0.7)]">›</span>
+        <span className="text-7xl leading-none drop-shadow-[0_0_10px_rgba(0,0,0,0.7)]">›</span>
       </button>
 
       <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-2">
@@ -111,9 +110,8 @@ export const ImageCarousel: React.FC<ImageCarouselProps> = ({ images, altPrefix 
               setDirection(idx > index ? "next" : "prev");
               setIndex(idx);
             }}
-            className={`w-2.5 h-2.5 rounded-full border border-white/70 transition-colors ${
-              idx === index ? "bg-white" : "bg-white/20"
-            }`}
+            className={`w-2.5 h-2.5 rounded-full border border-white/70 transition-colors ${idx === index ? "bg-white" : "bg-white/20"
+              }`}
             aria-label={`Toon afbeelding ${idx + 1}`}
           />
         ))}

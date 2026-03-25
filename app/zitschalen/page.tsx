@@ -27,19 +27,36 @@ export default function ZitschalenPage() {
   const sections = useMemo(
     () => [
       {
-        image: "",
+
+        images: ["/images/zitschalen1.png",
+          "/images/zitschalen2.png",
+          "/images/zitschalen3.png",
+          "/images/zitschalen4.png"],
+        heading: t("zitschalen.heading1"),
         text: t("zitschalen.section1"),
-        imagePosition: "right" as const,
-      },
-      {
-        image: "",
-        text: t("zitschalen.section2"),
         imagePosition: "left" as const,
       },
       {
-        image: "",
-        text: t("zitschalen.section3"),
+        // Kop 2: process
+        images: [
+          "/images/process1.jpg",
+          "/images/process2.png",
+          "/images/process3.png",
+          "/images/process4.png",
+        ],
+        heading: t("zitschalen.heading2"),
+        text: t("zitschalen.section2"),
         imagePosition: "right" as const,
+      },
+      {
+        // Kop 3: functie
+        images: ["/images/functie1.jpg",
+          "/images/functie2.jpg",
+          "/images/functie3.jpg",
+          "/images/functie4.png"],
+        heading: t("zitschalen.heading3"),
+        text: t("zitschalen.section3"),
+        imagePosition: "left" as const,
       },
     ],
     [t]
@@ -51,6 +68,7 @@ export default function ZitschalenPage() {
       sections={sections}
       menuItems={menuItems}
       socialItems={socialItems}
+      hideHero
     />
   );
 }
