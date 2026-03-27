@@ -1,5 +1,5 @@
 "use client";
-import React, { createContext, useContext, useState, useEffect } from "react";
+import React, { createContext, useContext, useState, useEffect, useCallback, useMemo } from "react";
 
 type Language = "nl" | "en";
 
@@ -42,7 +42,7 @@ const translations = {
     // Homepage cards
     "home.cards.zitschalenTitle": "ZITSCHALEN / ZITORTHESIS",
     "home.cards.zitschalenBody": "We gebruiken geavanceerde 3D-printtechnologie om zitoplossingen op maat te creëren die comfort, ondersteuning en levenskwaliteit verbeteren.",
-    "home.cards.creatiefTitle": "CREATIVE INDUSTRY",
+    "home.cards.creatiefTitle": "CREATIEVE INDUSTRIE",
     "home.cards.creatiefBody": "We ontwerpen en 3D-printen unieke objecten en decoratieve stukken die ideeën tot leven brengen met een sterk visueel effect.",
     "home.cards.moreDetails": "Meer details",
 
@@ -175,17 +175,22 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
     }
   }, []);
 
-  const setLanguage = (lang: Language) => {
+  const setLanguage = useCallback((lang: Language) => {
     setLanguageState(lang);
     localStorage.setItem("language", lang);
-  };
+  }, []);
 
-  const t = (key: string): string => {
+  const t = useCallback((key: string): string => {
     return translations[language][key as keyof typeof translations.nl] || key;
-  };
+  }, [language]);
+
+  const value = useMemo(
+    () => ({ language, setLanguage, t }),
+    [language, setLanguage, t]
+  );
 
   return (
-    <LanguageContext.Provider value={{ language, setLanguage, t }}>
+    <LanguageContext.Provider value={value}>
       {children}
     </LanguageContext.Provider>
   );

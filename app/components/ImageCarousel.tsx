@@ -80,7 +80,7 @@ export const ImageCarousel: React.FC<ImageCarouselProps> = ({ images, altPrefix 
           e.stopPropagation();
           goPrev();
         }}
-        className="absolute left-3 top-1/2 -translate-y-1/2 flex h-50 w-16 items-center justify-center text-white hover:text-gray-200 transition-colors"
+        className="absolute left-3 top-1/2 -translate-y-1/2 flex h-24 w-16 items-center justify-center text-white hover:text-gray-200 transition-colors"
         aria-label="Vorige"
       >
         <span className="text-7xl leading-none drop-shadow-[0_0_10px_rgba(0,0,0,0.7)]">‹</span>

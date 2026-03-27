@@ -1,5 +1,6 @@
 "use client";
 import { useMemo } from "react";
+import Image from "next/image";
 import { SiteMenu } from "../components/SiteMenu";
 import { Footer } from "../components/Footer";
 import { useLanguage } from "../contexts/LanguageContext";
@@ -52,8 +53,26 @@ export default function TeamPage() {
     >
       <SiteMenu items={menuItems} socialItems={socialItems} showLogo={false} />
 
+      {/* Header logo (bovenaan, midden) */}
+      <header
+        className="absolute left-1/2 top-0 -translate-x-1/2 z-[45] pointer-events-none"
+        style={{ paddingTop: "calc(env(safe-area-inset-top, 0px) + 10px)" }}
+      >
+        <div className="relative w-40 h-24 sm:w-52 sm:h-28 md:w-64 md:h-32">
+          <div className="absolute inset-0 -z-10 rounded-full bg-white/70 blur-3xl scale-110" />
+          <Image
+            src="/images/fis-plakaat.png"
+            alt="FIS Robotics"
+            fill
+            className="object-contain drop-shadow-[0_0_90px_rgba(255,255,255,1)]"
+            priority
+            sizes="(max-width: 640px) 160px, (max-width: 768px) 208px, 256px"
+          />
+        </div>
+      </header>
+
       {/* Team Section */}
-      <section style={{ position: "relative", zIndex: 1, padding: "8rem 2rem 6rem" }}>
+      <section style={{ position: "relative", zIndex: 1, padding: "10rem 2rem 6rem" }}>
         <div className="max-w-7xl mx-auto">
           <div className="bg-white/10 backdrop-blur-sm rounded-3xl p-8 md:p-12 border border-white/20 shadow-lg">
             <h1 className="text-4xl md:text-5xl font-almost-textual text-white mb-12 text-center">
@@ -64,10 +83,10 @@ export default function TeamPage() {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
               {teamMembers.slice(0, 3).map((member, index) => (
                 <div key={index} className="text-center">
-                  <h3 className="text-2xl md:text-3xl font-almost-textual text-white mb-2">
+                  <h3 className="text-3xl md:text-4xl font-bold text-white mb-2">
                     {member.name}
                   </h3>
-                  <p className="text-lg md:text-xl text-gray-300 font-verdana-bold">
+                  <p className="text-base md:text-lg text-gray-300 font-normal">
                     {member.role}
                   </p>
                 </div>
@@ -78,10 +97,10 @@ export default function TeamPage() {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
               {teamMembers.slice(3, 6).map((member, index) => (
                 <div key={index + 3} className="text-center">
-                  <h3 className="text-2xl md:text-3xl font-bold text-white mb-2">
+                  <h3 className="text-3xl md:text-4xl font-bold text-white mb-2">
                     {member.name}
                   </h3>
-                  <p className="text-lg md:text-xl text-gray-300">
+                  <p className="text-base md:text-lg text-gray-300 font-normal">
                     {member.role}
                   </p>
                 </div>
@@ -91,10 +110,10 @@ export default function TeamPage() {
             {/* Third row: 1 team member centered */}
             <div className="flex justify-center">
               <div className="text-center">
-                <h3 className="text-2xl md:text-3xl font-almost-textual text-white mb-2">
+                <h3 className="text-3xl md:text-4xl font-bold text-white mb-2">
                   {teamMembers[6].name}
                 </h3>
-                <p className="text-lg md:text-xl text-gray-300 font-verdana-bold">
+                <p className="text-base md:text-lg text-gray-300 font-normal">
                   {teamMembers[6].role}
                 </p>
               </div>

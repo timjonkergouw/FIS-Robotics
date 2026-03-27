@@ -1,143 +1,139 @@
-### FIS Robotics – Website README
+# FIS Robotics Website
 
-**Korte uitleg**
+Deze README is geschreven voor iemand met weinig technische ervaring.
+Volg de stappen hieronder en je krijgt de website lokaal werkend.
 
-Dit is de website van **FIS Robotics**. De site laat zien wie we zijn, wat we doen en in welke domeinen we actief zijn  
-(met de nadruk op zitschalen/zitortheses en de creatieve industrie).
+## 1) Wat is dit?
 
----
+Dit project is de FIS Robotics website met onder andere:
+- Homepagina
+- `zitschalen` pagina
+- `creatief` pagina
+- `team` pagina
+- Nederlands en Engels (meertaligheid)
 
-### Navigatie van de site
+Techniek:
+- Next.js (React)
+- TypeScript
 
-- **Hoofdmenu bovenaan**
-  - **Home**: startpagina met introductie, grote achtergrondvideo en een overzicht van de twee hoofd­domeinen.
-  - **About / Over ons** (submenu):
-    - Zitschalen / Zitortheses
-    - Creatieve Industrie
-  - **Team**: overzicht van het team.
+## 2) Wat heb je nodig?
 
-- **Taalkeuze**
-  - De site ondersteunt meerdere talen (bijvoorbeeld Nederlands en Engels).
-  - Teksten in het menu en op de pagina’s passen zich aan op basis van de gekozen taal.
+Installeer eerst:
+- Node.js (aanbevolen: LTS versie)
+- npm (zit standaard bij Node.js)
 
-- **Social media**
-  - In het menu en in de footer staan links naar:
-    - LinkedIn
-    - Facebook
-    - X
-    - Instagram
+Controleer in terminal:
 
-- **Contact**
-  - Er is geen aparte contactpagina meer.
-  - E‑mailadres en adres staan in de footer op elke pagina.
+```bash
+node -v
+npm -v
+```
 
----
+## 3) Project starten (lokaal)
 
-### Homepagina (`/`)
-
-**Wat ziet een bezoeker hier?**
-
-- **Fullscreen achtergrondvideo**  
-  - Bovenaan, direct onder de header, draait een video op de achtergrond over de volledige viewport.  
-  - Er ligt een donkere overlay overheen zodat alle teksten goed leesbaar blijven.
-
-- **Centraal FIS‑logo**  
-  - In het midden van de hero staat het FIS Robotics‑logo met een lichte glow/hover‑animatie.
-
-- **Twee ovale knoppen (domeinen)**
-  - **Zitschalen / Zitortheses** (`/zitschalen`)
-  - **Creatieve Industrie** (`/creatief`)
-  - Op mobiel staan deze knoppen naast elkaar; op grotere schermen blijven ze compact en centraal.
-
-- **Slogan + korte toelichting**
-  - Een opvallende slogan in het Inter‑lettertype.
-  - Een korte beschrijving onder de slogan die uitlegt wat FIS Robotics doet.
-
-- **Onderste twee kaarten (domeinen)**
-  - **Zitschalen / Zitortheses**
-  - **Creatieve Industrie**
-  - Elke kaart bevat:
-    - wisselende afbeeldingen met:
-      - pijltjes links/rechts
-      - automatische slide elke 5 seconden
-      - swipe‑support op mobiel
-    - titel, toelichtende tekst en een brede knop “Meer details” onderaan de kaart.
-
-- **Footer**
-  - Links: logo.
-  - Midden: contactblok met e‑mail en adres (zonder telefoonnummer).
-  - Midden rechts: snelle links naar Zitschalen en Creatief.
-  - Rechts onder: social media‑iconen.
-
----
-
-### Zitschalen / Zitortheses (`/zitschalen`)
-
-**Doel van de pagina**  
-Uitleg over onze **op maat gemaakte zitschalen en zitortheses**.
-
-**Inhoud in het kort**
-
-- We ontwikkelen zitschalen die precies aansluiten op de lichaamsvorm van de gebruiker.
-- Met **3D‑scantechnologie** werken we tot op de millimeter nauwkeurig, voor optimaal comfort en ondersteuning.
-- We gebruiken **hoogwaardige, medisch gecertificeerde materialen** die licht en duurzaam zijn.
-- We werken samen met ergotherapeuten, fysiotherapeuten en revalidatieartsen zodat de oplossingen voldoen aan medische standaarden.
-- We begeleiden het hele traject: van eerste consult tot en met de levering van de definitieve zitoplossing.
-
-De pagina gebruikt de generieke `DetailPage`‑layout: grote titel bovenaan, daarna afwisselend blokken met tekst en (optionele) afbeeldingen links/rechts.
-
----
-
-### Creatieve Industrie (`/creatief`)
-
-**Doel van de pagina**  
-Laat zien wat we doen voor de **creatieve sector** (kunst, tentoonstellingen, musea enzovoort).
-
-**Inhoud in het kort**
-
-- We combineren **technologie en creativiteit** om:
-  - interactieve kunstinstallaties
-  - innovatieve tentoonstellingsoplossingen  
-  te ontwikkelen.
-- We werken samen met musea, galeries en kunstenaars om bezoekers te betrekken en te inspireren.
-- Onze oplossingen zijn zowel **technisch betrouwbaar** als **esthetisch passend** in een artistieke omgeving.
-- We zien technologie als een extra middel voor **artistieke expressie**.
-
-Ook deze pagina gebruikt de `DetailPage`‑layout met afwisselend tekst‑ en beeldblokken.
-
----
-
-### Team (`/team`)
-
-**Doel van de pagina**  
-Stelt het **team achter FIS Robotics** voor.
-
-**Inhoud in het kort**
-
-- Bovenaan dezelfde navigatie als op andere pagina’s (Home, About, Team).
-- In een centraal blok worden de teamleden getoond, in rastervorm (meerdere rijen).
-- Bij elk teamlid staat:
-  - naam
-  - rol/functie (meertalig, afhankelijk van taalinstelling)
-- Onderaan staat dezelfde footer met links naar de belangrijkste domeinen en social media.
-
----
-
-### Technische informatie (voor ontwikkelaars)
-
-- De site is gebouwd met **Next.js** (React, app router).
-- Belangrijke pagina’s:
-  - `app/page.tsx`: Homepagina (met fullscreen achtergrondvideo en carrouselkaarten)
-  - `app/zitschalen/page.tsx`: Zitschalen / Zitortheses (via `DetailPage`)
-  - `app/creatief/page.tsx`: Creatieve Industrie (via `DetailPage`)
-  - `app/team/page.tsx`: Team
-- Er is een **taalcontext** (`LanguageContext`) voor meertaligheid.
-- Standaard development‑start:
+Open terminal in de projectmap en voer uit:
 
 ```bash
 npm install
 npm run dev
 ```
 
-De site is vervolgens bereikbaar op `http://localhost:3000`.
+Daarna open je:
+- [http://localhost:3000](http://localhost:3000)
+
+Stoppen van de server:
+- `Ctrl + C` in de terminal
+
+## 4) Belangrijkste bestanden
+
+Gebruik deze als startpunt:
+- `app/page.tsx` -> homepagina
+- `app/zitschalen/page.tsx` -> zitschalen pagina
+- `app/creatief/page.tsx` -> creatieve industrie pagina
+- `app/team/page.tsx` -> teampagina
+- `app/contexts/LanguageContext.tsx` -> alle teksten (NL + EN)
+- `app/components/DetailPage.tsx` -> layout voor detailpagina's
+- `app/components/ImageCarousel.tsx` -> slider met pijltjes
+- `public/images` -> alle afbeeldingen
+
+## 5) Teksten aanpassen (NL en EN)
+
+Alle vertaalde teksten staan in:
+- `app/contexts/LanguageContext.tsx`
+
+Daar vind je twee blokken:
+- `nl: { ... }`
+- `en: { ... }`
+
+Pas altijd beide aan als je wilt dat een tekst in beide talen klopt.
+
+Voorbeeld sleutels:
+- `zitschalen.heading1`
+- `zitschalen.section1`
+- `creatief.section2`
+
+## 6) Afbeeldingen aanpassen
+
+Afbeeldingen staan in:
+- `public/images`
+
+En worden gekoppeld in bijvoorbeeld:
+- `app/zitschalen/page.tsx`
+- `app/creatief/page.tsx`
+
+Voorbeeld:
+
+```ts
+images: [
+  "/images/zitschalen1.png",
+  "/images/zitschalen2.jpg",
+]
+```
+
+Let heel goed op:
+- bestandsnaam moet exact kloppen
+- extensie moet exact kloppen (`.jpg` is anders dan `.png`)
+- hoofdletters/kleine letters moeten kloppen
+
+## 7) Waarom een image soms niet zichtbaar is
+
+Meest voorkomende oorzaken:
+- verkeerd gespelde bestandsnaam (bijv. `funtie2.jpg` vs `functie2.jpg`)
+- verkeerde extensie (`.png` gebruikt terwijl bestand `.jpg` is)
+- bestand staat niet in `public/images`
+- oude browsercache / oude dev build
+
+Snelle fix:
+1. Controleer naam in `public/images`
+2. Controleer naam in de pagina-code
+3. Herstart dev-server (`Ctrl + C`, daarna `npm run dev`)
+4. Hard refresh in browser (`Ctrl + F5`)
+
+## 8) Build voor productie
+
+Controleer of project buildt:
+
+```bash
+npm run build
+npm run start
+```
+
+## 9) Handige workflow bij wijzigingen
+
+1. Pas tekst of image-link aan
+2. Sla op
+3. Bekijk direct in browser
+4. Test in NL en EN
+5. Controleer of slider-pijltjes en afbeeldingen nog goed werken
+
+## 10) Veelgemaakte fouten
+
+- Alleen NL aangepast, EN vergeten
+- Image in map gezet, maar met andere naam dan in code
+- Verkeerde map gebruikt (`public/images` is verplicht voor lokale image paden zoals `/images/...`)
+- Typfout in sleutelnaam in `LanguageContext`
+
+---
+
+Als je deze README volgt, kun je de website starten, teksten aanpassen en afbeeldingen beheren zonder diepgaande programmeerkennis.
 

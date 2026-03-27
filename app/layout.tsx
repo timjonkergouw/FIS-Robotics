@@ -22,7 +22,6 @@ const interHeavy = Inter({
 export const metadata: Metadata = {
   title: "FIS Robotics",
   description: "FIS Robotics",
-  themeColor: "#1A1A1A",
   manifest: "/manifest.json",
   icons: {
     icon: [
@@ -54,6 +53,7 @@ export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
   viewportFit: "cover",
+  themeColor: "#1A1A1A",
 };
 
 export default function RootLayout({

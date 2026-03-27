@@ -28,7 +28,7 @@ export default function ZitschalenPage() {
     () => [
       {
 
-        images: ["/images/zitschalen1.png",
+        images: ["/images/zitsschalen1.jpeg",
           "/images/zitschalen2.png",
           "/images/zitschalen3.png",
           "/images/zitschalen4.png"],
